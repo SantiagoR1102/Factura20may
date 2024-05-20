@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8C5D2CA5-D1E2-4338-9FF3-E442672FAE0C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>_14mayproyecrep</RootNamespace>
+    <AssemblyName>14mayproyecrep</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FrmCategorias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCategorias.Designer.cs">
+      <DependentUpon>FrmCategorias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCliente.Designer.cs">
+      <DependentUpon>FrmCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCliNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCliNew.Designer.cs">
+      <DependentUpon>FrmCliNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmNewCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNewCategoria.Designer.cs">
+      <DependentUpon>FrmNewCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSubCat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSubCat.Designer.cs">
+      <DependentUpon>FrmSubCat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSubCatNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSubCatNew.Designer.cs">
+      <DependentUpon>FrmSubCatNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmCategorias.resx">
+      <DependentUpon>FrmCategorias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCliente.resx">
+      <DependentUpon>FrmCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCliNew.resx">
+      <DependentUpon>FrmCliNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmNewCategoria.resx">
+      <DependentUpon>FrmNewCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSubCat.resx">
+      <DependentUpon>FrmSubCat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSubCatNew.resx">
+      <DependentUpon>FrmSubCatNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nuevo_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nuevo_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actualizar_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eliminar_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eliminar_241.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ConexionBD\ConexionBD.csproj">
+      <Project>{f5d8fd9b-b1dd-47c2-9f84-6601fba2fd0f}</Project>
+      <Name>ConexionBD</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modelos\Modelos.csproj">
+      <Project>{4DB7DD5F-F5B1-4E35-8A92-BAE2D0A1EB7C}</Project>
+      <Name>Modelos</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eliminar_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cliente-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Registro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\subcat-64.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

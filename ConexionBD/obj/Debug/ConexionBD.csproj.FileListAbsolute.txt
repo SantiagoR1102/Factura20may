@@ -1,0 +1,9 @@
+C:\Users\sistemas-2\Documents\SSRR\proyectos\proy09-05rep\ConexionBD\obj\Debug\ConexionBD.csproj.AssemblyReference.cache
+C:\Users\sistemas-2\Documents\SSRR\proyectos\proy09-05rep\ConexionBD\obj\Debug\ConexionBD.csproj.CoreCompileInputs.cache
+C:\Users\sistemas-2\Documents\SSRR\proyectos\proy09-05rep\ConexionBD\bin\Debug\ConexionBD.dll
+C:\Users\sistemas-2\Documents\SSRR\proyectos\proy09-05rep\ConexionBD\bin\Debug\ConexionBD.pdb
+C:\Users\sistemas-2\Documents\SSRR\proyectos\proy09-05rep\ConexionBD\bin\Debug\Modelos.dll
+C:\Users\sistemas-2\Documents\SSRR\proyectos\proy09-05rep\ConexionBD\bin\Debug\Modelos.pdb
+C:\Users\sistemas-2\Documents\SSRR\proyectos\proy09-05rep\ConexionBD\obj\Debug\ConexionBD.csproj.CopyComplete
+C:\Users\sistemas-2\Documents\SSRR\proyectos\proy09-05rep\ConexionBD\obj\Debug\ConexionBD.dll
+C:\Users\sistemas-2\Documents\SSRR\proyectos\proy09-05rep\ConexionBD\obj\Debug\ConexionBD.pdb
