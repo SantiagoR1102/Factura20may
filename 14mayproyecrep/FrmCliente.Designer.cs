@@ -19,6 +19,7 @@ namespace _14mayproyecrep
                 components.Dispose();
             }
             base.Dispose(disposing);
+
         }
 
         #region Windows Form Designer generated code
@@ -109,13 +110,13 @@ namespace _14mayproyecrep
             // Telefonocli
             // 
             this.Telefonocli.Text = "Telefono";
-            this.Telefonocli.Width = 209;
+            this.Telefonocli.Width = 186;
             // 
             // DireccionClie
             // 
             this.DireccionClie.Tag = "";
             this.DireccionClie.Text = "Dirección";
-            this.DireccionClie.Width = 242;
+            this.DireccionClie.Width = 207;
             // 
             // panel2
             // 
@@ -140,7 +141,6 @@ namespace _14mayproyecrep
             this.panel3.Padding = new System.Windows.Forms.Padding(6);
             this.panel3.Size = new System.Drawing.Size(162, 62);
             this.panel3.TabIndex = 1;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // NuevoClie
             // 
@@ -158,7 +158,7 @@ namespace _14mayproyecrep
             this.NuevoClie.Text = "&Nuevo";
             this.NuevoClie.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.NuevoClie.UseVisualStyleBackColor = false;
-            this.NuevoClie.Click += new System.EventHandler(this.button2_Click);
+            this.NuevoClie.Click += new System.EventHandler(this.NuevoClie_Click);
             // 
             // RefrescarClie
             // 

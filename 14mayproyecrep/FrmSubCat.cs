@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Modelos;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using Modelos;
 
 namespace _14mayproyecrep
 {
@@ -25,7 +25,7 @@ namespace _14mayproyecrep
 
         private void newSubcat_Click(object sender, EventArgs e)
         {
-            Form formulario = new FrmSubCatNew(0);
+            Form formulario = new FrmSubCatNew(null);
             formulario.ShowDialog();
         }
 
@@ -45,6 +45,8 @@ namespace _14mayproyecrep
             {
                 ListViewItem item = new ListViewItem(ListaSubcat[x].Id.ToString());
                 item.SubItems.Add(ListaSubcat[x].Nombre);
+                item.SubItems.Add(ListaSubcat[x].categoria.Nombre);
+                item.SubItems.Add(ListaSubcat[x].categoria.Id.ToString());
                 listViSubc.Items.Add(item);
             }
 
@@ -52,12 +54,25 @@ namespace _14mayproyecrep
 
         private void listViSubc_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+
+
             try
             {
                 int id = 0;
                 id = Convert.ToInt32(listViSubc.SelectedItems[0].SubItems[0].Text);
-                Form formulario = new FrmSubCatNew(id);
-                formulario.ShowDialog();
+                if (id > 0)
+                {
+                    objSubCategoria modelo = new objSubCategoria()
+                    {
+                        Id = Convert.ToInt32(listViSubc.SelectedItems[0].SubItems[0].Text),
+                        Nombre = listViSubc.SelectedItems[0].SubItems[1].Text
+                    };
+                    Form formulario = new FrmSubCatNew(modelo);
+                    formulario.ShowDialog();
+                }
+
+
             }
             catch (Exception ex)
             {

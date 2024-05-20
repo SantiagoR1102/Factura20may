@@ -19,24 +19,18 @@ namespace _14mayproyecrep
 
         }
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
 
-        
-        private void button2_Click(object sender, EventArgs e)
+        /*private void button2_Click(object sender, EventArgs e)
         {
-            Form formulario = new FrmCliNew(0);
-            formulario.ShowDialog();
-        }
+            
+        }*/
 
         private void button1_Click(object sender, EventArgs e)
         {
             ListarCli();
 
         }
-
 
         private void ListarCli()
         {
@@ -65,8 +59,22 @@ namespace _14mayproyecrep
             {
                 int id = 0;
                 id = Convert.ToInt32(listView1.SelectedItems[0].SubItems[0].Text);
-                Form formulario = new FrmCliNew(id);
-                formulario.ShowDialog();
+                if (id > 0)
+                {
+                    objCliente modelo = new objCliente()
+                    {
+                        Id = Convert.ToInt32(listView1.SelectedItems[0].SubItems[0].Text),
+                        Nombre = listView1.SelectedItems[0].SubItems[1].Text,
+                        Apellido = listView1.SelectedItems[0].SubItems[2].Text,
+                        //Cedula = Convert.ToInt32(listView1.SelectedItems[0].SubItems[3].Text),
+                        Correo = listView1.SelectedItems[0].SubItems[3].Text,
+                        Telefono = Convert.ToInt32(listView1.SelectedItems[0].SubItems[4].Text),
+                        Direccion = listView1.SelectedItems[0].SubItems[5].Text
+                    };
+                    Form formulario = new FrmCliNew(modelo);
+                    formulario.ShowDialog();
+                }
+
             }
             catch (Exception ex)
             {
@@ -78,6 +86,12 @@ namespace _14mayproyecrep
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void NuevoClie_Click(object sender, EventArgs e)
+        {
+            Form formulario = new FrmCliNew(null);
+            formulario.ShowDialog();
         }
     }
 }

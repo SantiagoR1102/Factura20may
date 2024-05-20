@@ -4,3 +4,9 @@ C:\Users\sistemas-2\Documents\SSRR\proyectos\proy09-05rep\Modelos\bin\Debug\Mode
 C:\Users\sistemas-2\Documents\SSRR\proyectos\proy09-05rep\Modelos\bin\Debug\Modelos.pdb
 C:\Users\sistemas-2\Documents\SSRR\proyectos\proy09-05rep\Modelos\obj\Debug\Modelos.dll
 C:\Users\sistemas-2\Documents\SSRR\proyectos\proy09-05rep\Modelos\obj\Debug\Modelos.pdb
+C:\Users\sistemas-2\Documents\Factura20may\Modelos\bin\Debug\Modelos.dll
+C:\Users\sistemas-2\Documents\Factura20may\Modelos\bin\Debug\Modelos.pdb
+C:\Users\sistemas-2\Documents\Factura20may\Modelos\obj\Debug\Modelos.csproj.AssemblyReference.cache
+C:\Users\sistemas-2\Documents\Factura20may\Modelos\obj\Debug\Modelos.csproj.CoreCompileInputs.cache
+C:\Users\sistemas-2\Documents\Factura20may\Modelos\obj\Debug\Modelos.dll
+C:\Users\sistemas-2\Documents\Factura20may\Modelos\obj\Debug\Modelos.pdb

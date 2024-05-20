@@ -12,8 +12,6 @@ namespace ConexionBD
 
         public bool eliminarDatos(int id)
         {
-
-
             bool rs = false;
             try
             {
@@ -30,6 +28,7 @@ namespace ConexionBD
             }
             return rs;
         }
+
 
         /*ACTUALIZAR LOS DATOS A LA BASE DE DATOS------------------------------------------------------------*/
 

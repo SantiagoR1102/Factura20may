@@ -38,3 +38,4 @@ C:\Users\sistemas-2\Documents\Factura20may\14mayproyecrep\obj\Debug\14mayproyecr
 C:\Users\sistemas-2\Documents\Factura20may\14mayproyecrep\obj\Debug\14mayproyecrep.csproj.CopyComplete
 C:\Users\sistemas-2\Documents\Factura20may\14mayproyecrep\obj\Debug\14mayproyecrep.exe
 C:\Users\sistemas-2\Documents\Factura20may\14mayproyecrep\obj\Debug\14mayproyecrep.pdb
+C:\Users\sistemas-2\Documents\Factura20may\14mayproyecrep\obj\Debug\_14mayproyecrep.TodosForms.resources

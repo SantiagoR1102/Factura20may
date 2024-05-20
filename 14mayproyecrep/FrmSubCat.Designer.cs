@@ -40,6 +40,7 @@ namespace _14mayproyecrep
             this.Refrescar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -59,10 +60,12 @@ namespace _14mayproyecrep
             // listViSubc
             // 
             this.listViSubc.BackColor = System.Drawing.Color.Gainsboro;
+            this.listViSubc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listViSubc.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.idsubcat,
             this.NombreSubcat,
-            this.idcatego});
+            this.idcatego,
+            this.columnHeader1});
             this.listViSubc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listViSubc.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.listViSubc.GridLines = true;
@@ -85,12 +88,12 @@ namespace _14mayproyecrep
             // NombreSubcat
             // 
             this.NombreSubcat.Text = "NOMBRE";
-            this.NombreSubcat.Width = 634;
+            this.NombreSubcat.Width = 300;
             // 
             // idcatego
             // 
-            this.idcatego.Text = "IdCategoria";
-            this.idcatego.Width = 78;
+            this.idcatego.Text = "CATEGORIA";
+            this.idcatego.Width = 200;
             // 
             // panel2
             // 
@@ -167,6 +170,12 @@ namespace _14mayproyecrep
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "ID Categoria";
+            this.columnHeader1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader1.Width = 77;
+            // 
             // FrmSubCat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -200,5 +209,6 @@ namespace _14mayproyecrep
         private System.Windows.Forms.Button newSubcat;
         private System.Windows.Forms.Button Refrescar;
         private System.Windows.Forms.ColumnHeader idcatego;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
     }
 }

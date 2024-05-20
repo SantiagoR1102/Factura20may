@@ -22,7 +22,7 @@ namespace _14mayproyecrep
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            Form formulario = new FrmNewCategoria(0);
+            Form formulario = new FrmNewCategoria(null);
             formulario.ShowDialog();
         }
 
@@ -58,9 +58,20 @@ namespace _14mayproyecrep
             {
                 int id = 0;
                 id = Convert.ToInt32(ListData.SelectedItems[0].SubItems[0].Text);
+                if(id > 0) 
+                {
+                    objCategoria modelo = new objCategoria()
+                    {
+                        Id = Convert.ToInt32(ListData.SelectedItems[0].SubItems[0].Text),
+                        Nombre = ListData.SelectedItems[0].SubItems[1].Text
+                    };
 
-                Form formulario = new FrmNewCategoria(id);
-                formulario.ShowDialog();
+                    Form formulario = new FrmNewCategoria(modelo);
+                    formulario.ShowDialog();
+
+                };
+
+               
             }
             catch { }
         }

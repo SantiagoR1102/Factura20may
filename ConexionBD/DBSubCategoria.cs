@@ -47,14 +47,19 @@ namespace ConexionBD
 
             try
             {
-                dataReader = DATAREADER("SELECT id, Nombre, idCategoria FROM SubCategoria", null);
+                dataReader = DATAREADER("select a.id, a.Nombre Subcategoria, b.Nombre Categoria, b.id  from SubCategoria a inner join Categoria b on b.id = a.idCategoria", null);
                 while (dataReader.Read())
                 {
                     r.Add(new Modelos.objSubCategoria()
                     {
                         Id = dataReader.GetInt32(0),
                         Nombre = dataReader.GetString(1),
-                        IdCategoria = dataReader.GetInt32(2)
+                        Categoria = dataReader.GetString(2),
+                        categoria = new Modelos.objCategoria()
+                        {
+                            Nombre = dataReader.GetString(2),
+                            Id = dataReader.GetInt32(3),
+                        }
                     });
                 }
             }

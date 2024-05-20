@@ -52,7 +52,6 @@ namespace _14mayproyecrep
             this.panel2.Padding = new System.Windows.Forms.Padding(10);
             this.panel2.Size = new System.Drawing.Size(467, 67);
             this.panel2.TabIndex = 0;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // pictureBox1
             // 
@@ -74,7 +73,6 @@ namespace _14mayproyecrep
             this.lblInfo.Size = new System.Drawing.Size(175, 23);
             this.lblInfo.TabIndex = 0;
             this.lblInfo.Text = "Agrega Categoria";
-            this.lblInfo.Click += new System.EventHandler(this.lblInfo_Click);
             // 
             // EnviarCat
             // 
@@ -121,7 +119,6 @@ namespace _14mayproyecrep
             this.txtBxNombre.Name = "txtBxNombre";
             this.txtBxNombre.Size = new System.Drawing.Size(256, 23);
             this.txtBxNombre.TabIndex = 5;
-            this.txtBxNombre.TextChanged += new System.EventHandler(this.txtBxNombre_TextChanged);
             // 
             // txtId
             // 

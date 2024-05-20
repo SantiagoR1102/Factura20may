@@ -30,15 +30,15 @@ namespace _14mayproyecrep
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.EnviarSubCat = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.cboCategorias = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtbxNomSubc = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.EnviarSubCat = new System.Windows.Forms.Button();
             this.txtId = new System.Windows.Forms.TextBox();
+            this.Lbltit = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -57,6 +57,20 @@ namespace _14mayproyecrep
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(495, 269);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // EnviarSubCat
+            // 
+            this.EnviarSubCat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.EnviarSubCat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EnviarSubCat.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EnviarSubCat.Location = new System.Drawing.Point(271, 191);
+            this.EnviarSubCat.Name = "EnviarSubCat";
+            this.EnviarSubCat.Size = new System.Drawing.Size(134, 30);
+            this.EnviarSubCat.TabIndex = 6;
+            this.EnviarSubCat.Text = "Guardar";
+            this.EnviarSubCat.UseVisualStyleBackColor = false;
+            this.EnviarSubCat.Click += new System.EventHandler(this.EnviarSubCat_Click);
             // 
             // label3
             // 
@@ -91,12 +105,11 @@ namespace _14mayproyecrep
             this.txtbxNomSubc.Name = "txtbxNomSubc";
             this.txtbxNomSubc.Size = new System.Drawing.Size(247, 20);
             this.txtbxNomSubc.TabIndex = 1;
-            
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.txtId);
-            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.Lbltit);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
@@ -105,15 +118,26 @@ namespace _14mayproyecrep
             this.panel2.Size = new System.Drawing.Size(495, 78);
             this.panel2.TabIndex = 0;
             // 
-            // label1
+            // txtId
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(71, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(209, 33);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Sub-Categoria";
+            this.txtId.Enabled = false;
+            this.txtId.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtId.Location = new System.Drawing.Point(408, 33);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(63, 23);
+            this.txtId.TabIndex = 7;
+            this.txtId.Text = "0";
+            this.txtId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // Lbltit
+            // 
+            this.Lbltit.AutoSize = true;
+            this.Lbltit.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbltit.Location = new System.Drawing.Point(71, 22);
+            this.Lbltit.Name = "Lbltit";
+            this.Lbltit.Size = new System.Drawing.Size(209, 33);
+            this.Lbltit.TabIndex = 1;
+            this.Lbltit.Text = "Sub-Categoria";
             // 
             // pictureBox1
             // 
@@ -127,30 +151,6 @@ namespace _14mayproyecrep
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // EnviarSubCat
-            // 
-            this.EnviarSubCat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.EnviarSubCat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EnviarSubCat.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EnviarSubCat.Location = new System.Drawing.Point(271, 191);
-            this.EnviarSubCat.Name = "EnviarSubCat";
-            this.EnviarSubCat.Size = new System.Drawing.Size(134, 30);
-            this.EnviarSubCat.TabIndex = 6;
-            this.EnviarSubCat.Text = "Guardar";
-            this.EnviarSubCat.UseVisualStyleBackColor = false;
-            this.EnviarSubCat.Click += new System.EventHandler(this.EnviarSubCat_Click);
-            // 
-            // txtId
-            // 
-            this.txtId.Enabled = false;
-            this.txtId.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtId.Location = new System.Drawing.Point(408, 33);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(63, 23);
-            this.txtId.TabIndex = 7;
-            this.txtId.Text = "0";
-            this.txtId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // FrmSubCatNew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -158,6 +158,7 @@ namespace _14mayproyecrep
             this.ClientSize = new System.Drawing.Size(495, 269);
             this.Controls.Add(this.panel1);
             this.Name = "FrmSubCatNew";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sub-Categoria";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -177,7 +178,7 @@ namespace _14mayproyecrep
         private System.Windows.Forms.ComboBox cboCategorias;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtbxNomSubc;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label Lbltit;
         private System.Windows.Forms.Button EnviarSubCat;
         private System.Windows.Forms.TextBox txtId;
     }

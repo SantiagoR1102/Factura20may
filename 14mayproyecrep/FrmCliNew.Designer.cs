@@ -106,7 +106,6 @@ namespace _14mayproyecrep
             this.lblClie.Size = new System.Drawing.Size(140, 29);
             this.lblClie.TabIndex = 5;
             this.lblClie.Text = "REGISTRO";
-            this.lblClie.Click += new System.EventHandler(this.label6_Click);
             // 
             // txtbxNombre
             // 
@@ -114,6 +113,7 @@ namespace _14mayproyecrep
             this.txtbxNombre.Name = "txtbxNombre";
             this.txtbxNombre.Size = new System.Drawing.Size(308, 20);
             this.txtbxNombre.TabIndex = 6;
+            this.txtbxNombre.TextChanged += new System.EventHandler(this.txtbxNombre_TextChanged);
             // 
             // txtbxapellido
             // 
@@ -214,7 +214,6 @@ namespace _14mayproyecrep
             this.Name = "FrmCliNew";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Formulario Cliente";
-            this.Load += new System.EventHandler(this.FrmCliNew_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
