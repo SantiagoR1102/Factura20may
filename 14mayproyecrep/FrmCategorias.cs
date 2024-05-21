@@ -41,6 +41,7 @@ namespace _14mayproyecrep
                 ListViewItem item = new ListViewItem(ListaCategorias[x].Id.ToString());
                 item.SubItems.Add(ListaCategorias[x].Nombre);
                 ListData.Items.Add(item);
+                
             }
 
         }
@@ -74,6 +75,7 @@ namespace _14mayproyecrep
                
             }
             catch { }
+
         }
 
         private void Panel_1_Superior_Paint(object sender, PaintEventArgs e)

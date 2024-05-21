@@ -12,8 +12,8 @@ namespace _14mayproyecrep
 
         private void FormCategoria_Click(object sender, EventArgs e)
         {
-            /*Form formulario = new FrmCategorias(0);
-            formulario.ShowDialog();*/
+            //Form formulario = new FrmCategorias(null);
+            //formulario.ShowDialog();
         }
     }
 }

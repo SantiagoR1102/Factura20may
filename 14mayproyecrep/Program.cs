@@ -16,7 +16,7 @@ namespace _14mayproyecrep
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmSubCat());
+            Application.Run(new FrmProductos());
         }
     }
 }

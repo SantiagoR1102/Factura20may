@@ -70,6 +70,18 @@
     <Compile Include="FrmNewCategoria.Designer.cs">
       <DependentUpon>FrmNewCategoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProductos.Designer.cs">
+      <DependentUpon>FrmProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmProductosNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProductosNew.Designer.cs">
+      <DependentUpon>FrmProductosNew.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSubCat.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmNewCategoria.resx">
       <DependentUpon>FrmNewCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProductos.resx">
+      <DependentUpon>FrmProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSubCat.resx">
       <DependentUpon>FrmSubCat.cs</DependentUpon>
@@ -173,6 +188,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\subcat-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\productos64.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

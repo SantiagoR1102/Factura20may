@@ -11,7 +11,7 @@ namespace ConexionBD
         public bool GuardarSub(int id, string Nombre, int idCategoria)
         {
             string Query = id > 0 ? "UPDATE SubCategoria SET Nombre=@Nombre, idCategoria=@idCategoria WHERE Id=@Id" :
-                            "INSERT INTO SubCategoria (Nombre, idCategoria) VALUES (@Nombre, @idCategoria)";
+                              "INSERT INTO SubCategoria (Nombre, idCategoria) VALUES (@Nombre, @idCategoria)";
             bool rs = false;
             try
             {
