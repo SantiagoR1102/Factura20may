@@ -11,7 +11,7 @@ namespace _14mayproyecrep
         private ConexionBD.DBCliente Clientes;
 
 
-        public FrmCliente()
+        public FrmCliente(objCliente modelo)
         {
 
             InitializeComponent();

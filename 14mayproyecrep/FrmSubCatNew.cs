@@ -1,5 +1,6 @@
 ﻿using Modelos;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -15,10 +16,11 @@ namespace _14mayproyecrep
             InitializeComponent();
             categorias = new ConexionBD.DBCategorias();
             SubCategoria = new ConexionBD.DBSubCategoria();
-           
+
+            Categorias();
 
 
-            if(modelo==null)
+            if (modelo==null)
             {
                 txtId.Text = "0";
                 string info = "Nueva SubCat";
@@ -28,17 +30,21 @@ namespace _14mayproyecrep
             {
                 txtId.Text = modelo.Id.ToString();
                 txtbxNomSubc.Text = modelo.Nombre;
+
+                cboCategorias.SelectedValue = modelo.IdCategoria;
                 string info = "Actualizar datos";
                 Text = info; Lbltit.Text = info;
             }
 
-            Categorias();
         }
+
+
 
         private void Categorias()
         {
             try
             {
+
                 cboCategorias.DataSource = categorias.Listar();
                 cboCategorias.DisplayMember = "Nombre";
                 cboCategorias.ValueMember = "Id";
@@ -48,6 +54,8 @@ namespace _14mayproyecrep
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
 
         private void EnviarSubCat_Click(object sender, EventArgs e)
         {
@@ -92,6 +100,17 @@ namespace _14mayproyecrep
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void cboCategorias_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mascat_Click(object sender, EventArgs e)
+        {
+            Form formulario = new FrmCategorias(null);
+            formulario.ShowDialog();
         }
     }
 }

@@ -30,6 +30,7 @@ namespace _14mayproyecrep
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.mascat = new System.Windows.Forms.Button();
             this.EnviarSubCat = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.cboCategorias = new System.Windows.Forms.ComboBox();
@@ -46,6 +47,7 @@ namespace _14mayproyecrep
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.mascat);
             this.panel1.Controls.Add(this.EnviarSubCat);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.cboCategorias);
@@ -58,6 +60,23 @@ namespace _14mayproyecrep
             this.panel1.Size = new System.Drawing.Size(495, 269);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // mascat
+            // 
+            this.mascat.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.mascat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.mascat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.mascat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.mascat.Font = new System.Drawing.Font("Centaur", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mascat.ForeColor = System.Drawing.Color.Black;
+            this.mascat.Location = new System.Drawing.Point(408, 139);
+            this.mascat.Name = "mascat";
+            this.mascat.Size = new System.Drawing.Size(19, 21);
+            this.mascat.TabIndex = 7;
+            this.mascat.Text = "+";
+            this.mascat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.mascat.UseVisualStyleBackColor = false;
+            this.mascat.Click += new System.EventHandler(this.mascat_Click);
             // 
             // EnviarSubCat
             // 
@@ -84,10 +103,12 @@ namespace _14mayproyecrep
             // 
             // cboCategorias
             // 
+            this.cboCategorias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCategorias.Location = new System.Drawing.Point(149, 139);
             this.cboCategorias.Name = "cboCategorias";
             this.cboCategorias.Size = new System.Drawing.Size(247, 21);
             this.cboCategorias.TabIndex = 5;
+            this.cboCategorias.SelectedIndexChanged += new System.EventHandler(this.cboCategorias_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -181,5 +202,6 @@ namespace _14mayproyecrep
         private System.Windows.Forms.Label Lbltit;
         private System.Windows.Forms.Button EnviarSubCat;
         private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.Button mascat;
     }
 }

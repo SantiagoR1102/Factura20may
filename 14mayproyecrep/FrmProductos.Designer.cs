@@ -31,14 +31,15 @@ namespace _14mayproyecrep
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.listViewPro = new System.Windows.Forms.ListView();
-            this.NombrePro = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Precio = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.IdSubcat = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnNewPro = new System.Windows.Forms.Button();
             this.Refrescar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.idPro = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.nombre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Precioo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.idSubCategoria = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -60,9 +61,10 @@ namespace _14mayproyecrep
             this.listViewPro.BackColor = System.Drawing.SystemColors.ControlLight;
             this.listViewPro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listViewPro.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.NombrePro,
-            this.Precio,
-            this.IdSubcat});
+            this.idPro,
+            this.nombre,
+            this.Precioo,
+            this.idSubCategoria});
             this.listViewPro.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listViewPro.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewPro.GridLines = true;
@@ -76,21 +78,6 @@ namespace _14mayproyecrep
             this.listViewPro.View = System.Windows.Forms.View.Details;
             this.listViewPro.SelectedIndexChanged += new System.EventHandler(this.listViewPro_SelectedIndexChanged);
             // 
-            // NombrePro
-            // 
-            this.NombrePro.Text = "Nombre";
-            this.NombrePro.Width = 400;
-            // 
-            // Precio
-            // 
-            this.Precio.Text = "Precio";
-            this.Precio.Width = 150;
-            // 
-            // IdSubcat
-            // 
-            this.IdSubcat.Text = "IdSubcat";
-            this.IdSubcat.Width = 100;
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.panel3);
@@ -100,7 +87,6 @@ namespace _14mayproyecrep
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(800, 62);
             this.panel2.TabIndex = 0;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // panel3
             // 
@@ -147,6 +133,7 @@ namespace _14mayproyecrep
             this.Refrescar.Text = "&Refrescar";
             this.Refrescar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Refrescar.UseVisualStyleBackColor = false;
+            this.Refrescar.Click += new System.EventHandler(this.Refrescar_Click);
             // 
             // pictureBox1
             // 
@@ -158,6 +145,26 @@ namespace _14mayproyecrep
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            // 
+            // idPro
+            // 
+            this.idPro.Text = "Id";
+            this.idPro.Width = 55;
+            // 
+            // nombre
+            // 
+            this.nombre.Text = "Nombre";
+            this.nombre.Width = 200;
+            // 
+            // Precioo
+            // 
+            this.Precioo.Text = "Precio";
+            this.Precioo.Width = 150;
+            // 
+            // idSubCategoria
+            // 
+            this.idSubCategoria.Text = "idSubCategoria";
+            this.idSubCategoria.Width = 150;
             // 
             // FrmProductos
             // 
@@ -181,11 +188,12 @@ namespace _14mayproyecrep
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ListView listViewPro;
-        private System.Windows.Forms.ColumnHeader NombrePro;
-        private System.Windows.Forms.ColumnHeader Precio;
-        private System.Windows.Forms.ColumnHeader IdSubcat;
         private System.Windows.Forms.Panel panel3;
         protected internal System.Windows.Forms.Button btnNewPro;
         private System.Windows.Forms.Button Refrescar;
+        private System.Windows.Forms.ColumnHeader idPro;
+        private System.Windows.Forms.ColumnHeader nombre;
+        private System.Windows.Forms.ColumnHeader Precioo;
+        private System.Windows.Forms.ColumnHeader idSubCategoria;
     }
 }

@@ -40,3 +40,4 @@ C:\Users\sistemas-2\Documents\Factura20may\14mayproyecrep\obj\Debug\14mayproyecr
 C:\Users\sistemas-2\Documents\Factura20may\14mayproyecrep\obj\Debug\14mayproyecrep.pdb
 C:\Users\sistemas-2\Documents\Factura20may\14mayproyecrep\obj\Debug\_14mayproyecrep.TodosForms.resources
 C:\Users\sistemas-2\Documents\Factura20may\14mayproyecrep\obj\Debug\_14mayproyecrep.FrmProductos.resources
+C:\Users\sistemas-2\Documents\Factura20may\14mayproyecrep\obj\Debug\_14mayproyecrep.FrmProductosNew.resources

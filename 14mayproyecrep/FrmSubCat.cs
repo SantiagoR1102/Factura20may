@@ -11,18 +11,11 @@ namespace _14mayproyecrep
         private ConexionBD.DBSubCategoria SubCategoria;
 
 
-        public FrmSubCat()
+        public FrmSubCat(objSubCategoria modelo)
         {
             InitializeComponent();
             SubCategoria = new ConexionBD.DBSubCategoria();
-
         }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void newSubcat_Click(object sender, EventArgs e)
         {
             Form formulario = new FrmSubCatNew(null);
@@ -66,8 +59,9 @@ namespace _14mayproyecrep
                     objSubCategoria modelo = new objSubCategoria()
                     {
                         Id = Convert.ToInt32(listViSubc.SelectedItems[0].SubItems[0].Text),
-                        Nombre = listViSubc.SelectedItems[0].SubItems[1].Text
-                    };
+                        Nombre = listViSubc.SelectedItems[0].SubItems[1].Text,
+                        IdCategoria = Convert.ToInt32(listViSubc.SelectedItems[0].SubItems[3].Text)
+                }; 
                     Form formulario = new FrmSubCatNew(modelo);
                     formulario.ShowDialog();
                 }
@@ -79,6 +73,8 @@ namespace _14mayproyecrep
                 MessageBox.Show("Error al seleccionar el cliente: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+       
     }
 
 }

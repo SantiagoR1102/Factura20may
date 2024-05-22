@@ -10,7 +10,7 @@ namespace _14mayproyecrep
         private List<objCategoria> ListaCategorias;
         private ConexionBD.DBCategorias categorias;
 
-        public FrmCategorias()
+        public FrmCategorias(objCategoria modelo)
         {
             InitializeComponent();
             categorias = new ConexionBD.DBCategorias();

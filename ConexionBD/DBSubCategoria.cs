@@ -47,7 +47,9 @@ namespace ConexionBD
 
             try
             {
-                dataReader = DATAREADER("select a.id, a.Nombre Subcategoria, b.Nombre Categoria, b.id  from SubCategoria a inner join Categoria b on b.id = a.idCategoria", null);
+
+                dataReader = DATAREADER("select a.id, a.Nombre Subcategoria, b.Nombre Categoria, b.id  " +
+                    "from SubCategoria a inner join Categoria b on b.id = a.idCategoria", null);
                 while (dataReader.Read())
                 {
                     r.Add(new Modelos.objSubCategoria()

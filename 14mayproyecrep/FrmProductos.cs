@@ -2,41 +2,43 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+
 namespace _14mayproyecrep
 {
     public partial class FrmProductos : Form
     {
         private List<objProductos> ListaProductos;
         private ConexionBD.DBProductos productos;
-        public FrmProductos()
+
+        public FrmProductos(objProductos modelo)
         {
             InitializeComponent();
             productos = new ConexionBD.DBProductos();
         }
 
-
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
+        private void Refrescar_Click(object sender, EventArgs e)
         {
-
+            ListarProductos();
         }
 
-        private void btnNewPro_Click(object sender, EventArgs e)
+        private void ListarProductos()
         {
-            Form formulario = new FrmProductosNew(null);
-            formulario.ShowDialog();
-        }
-
-        private void Listar()
-        {
-            ListaProductos = new List<objProductos>();
-            ListaProductos = productos.Listar();
-            listViewPro.Items.Clear();
-            for (int x=0; x<ListaProductos.Count; x++)
+            try
             {
-                ListViewItem item = new ListViewItem(ListaProductos[x].Id.ToString());
-                item.SubItems.Add(ListaProductos[x].Nombre);
-                listViewPro.Items.Add(item);   
+                ListaProductos = productos.Listar();
+                listViewPro.Items.Clear();
+                foreach (var producto in ListaProductos)
+                {
+                    ListViewItem item = new ListViewItem(producto.Id.ToString());
+                    item.SubItems.Add(producto.Nombre);
+                    item.SubItems.Add(producto.Precio.ToString());
+                    item.SubItems.Add(producto.idSubCategoria.ToString());
+                    listViewPro.Items.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al listar productos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -44,23 +46,32 @@ namespace _14mayproyecrep
         {
             try
             {
-                int id = 0;
-                id = Convert.ToInt32(listViewPro.SelectedItems[0].SubItems[0].Text);
-                if (id > 0)
+                if (listViewPro.SelectedItems.Count > 0)
                 {
+                    var selectedItem = listViewPro.SelectedItems[0];
+                    int id = Convert.ToInt32(selectedItem.SubItems[0].Text);
+
                     objProductos modelo = new objProductos()
                     {
-                        Id = Convert.ToInt32(listViewPro.SelectedItems[0].SubItems[0].Text),
-                        Nombre = listViewPro.SelectedItems[0].SubItems[1].Text
+                        Id = id,
+                        Nombre = selectedItem.SubItems[1].Text,
+                        Precio = Convert.ToInt32(selectedItem.SubItems[2].Text),
+                        idSubCategoria = Convert.ToInt32(selectedItem.SubItems[3].Text)
                     };
                     Form formulario = new FrmProductosNew(modelo);
                     formulario.ShowDialog();
-                };
-
+                }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al seleccionar el producto: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        
+        private void btnNewPro_Click(object sender, EventArgs e)
+        {
+            Form formulario = new FrmProductosNew(null);
+            formulario.ShowDialog();
+        }
     }
 }
