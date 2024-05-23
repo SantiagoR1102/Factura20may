@@ -25,14 +25,14 @@ namespace _14mayproyecrep
         {
 
         }
-        
 
 
-        private void txtBxnom_TextChanged(object sender, EventArgs e)
+
+        private void txtCedulaCliente_TextChanged(object sender, EventArgs e)
         {
-            string criterioBusqueda = txtBuscarCliente.Text;
+            string cedula = txtNombreCliente.Text.Trim();
 
-            if (string.IsNullOrWhiteSpace(criterioBusqueda))
+            if (string.IsNullOrWhiteSpace(cedula))
             {
                 LimpiarCampo();
                 return;
@@ -40,10 +40,10 @@ namespace _14mayproyecrep
 
             try
             {
-                var cliente = Facturacion.BuscarClientePorNombre(criterioBusqueda);
-                if (cliente != null)
+                string nombre = Facturacion.BuscarNombrePorCedula(cedula);
+                if (nombre != null)
                 {
-                    txtNombreCliente.Text = cliente.Nombre;
+                    txtNombreCliente.Text = nombre;
                 }
                 else
                 {
@@ -52,20 +52,19 @@ namespace _14mayproyecrep
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al buscar el cliente: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al buscar el nombre del cliente: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
-
 
         private void LimpiarCampo()
         {
             txtNombreCliente.Text = string.Empty;
         }
     }
+}
 
     /*public class objCliente
     {
         public string Nombre { get; set; }
     }*/
-}
+

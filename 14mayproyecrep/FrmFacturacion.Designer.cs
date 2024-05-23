@@ -386,7 +386,6 @@ namespace _14mayproyecrep
             this.txtBuscarCliente.Name = "txtBuscarCliente";
             this.txtBuscarCliente.Size = new System.Drawing.Size(167, 20);
             this.txtBuscarCliente.TabIndex = 0;
-            this.txtBuscarCliente.TextChanged += new System.EventHandler(this.txtBxnom_TextChanged);
             // 
             // FrmFacturacion
             // 

@@ -7,40 +7,37 @@ namespace ConexionBD
 {
     public class DBFacturacion : ConexBD
     {
-        public objCliente BuscarClientePorNombre(string nombre)
+        public string BuscarNombrePorCedula(string cedula)
         {
-            objCliente cliente = null;
-            string query = "SELECT Nombre FROM Cliente WHERE Nombre LIKE @Nombre";
+            string nombre = null;
+            string query = "SELECT Nombre FROM Cliente WHERE Cedula = @Cedula";
 
             try
             {
                 List<SqlParameter> parameters = new List<SqlParameter>
                 {
-                    new SqlParameter("@Nombre", "%" + nombre + "%")
+                    new SqlParameter("@Cedula", cedula)
                 };
 
                 SqlDataReader reader = DATAREADER(query, parameters);
 
                 if (reader.Read())
                 {
-                    cliente = new objCliente
-                    {
-                        Nombre = reader.GetString(0)
-                    };
+                    nombre = reader.GetString(0);
                 }
 
                 reader.Close();
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al buscar el cliente: " + ex.Message);
+                throw new Exception("Error al buscar el nombre del cliente: " + ex.Message);
             }
             finally
             {
                 CerrarConexion();
             }
 
-            return cliente;
+            return nombre;
         }
     }
 }
