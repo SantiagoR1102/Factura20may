@@ -10,6 +10,7 @@ namespace _14mayproyecrep
         private List<objProductos> ListaProductos;
         private ConexionBD.DBProductos productos;
 
+
         public FrmProductos(objProductos modelo)
         {
             InitializeComponent();
@@ -32,7 +33,9 @@ namespace _14mayproyecrep
                     ListViewItem item = new ListViewItem(producto.Id.ToString());
                     item.SubItems.Add(producto.Nombre);
                     item.SubItems.Add(producto.Precio.ToString());
-                    item.SubItems.Add(producto.idSubCategoria.ToString());
+                    item.SubItems.Add(producto.SubCategoria.ToString());
+                    item.SubItems.Add(producto.categoria.ToString());
+
                     listViewPro.Items.Add(item);
                 }
             }

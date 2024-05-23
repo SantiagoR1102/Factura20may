@@ -9,12 +9,16 @@ namespace _14mayproyecrep
     {
         private ConexionBD.DBProductos productos;
         private ConexionBD.DBSubCategoria subCategoria;
+        private ConexionBD.DBCategorias  Categoria;
+
 
         public FrmProductosNew(objProductos modelo)
         {
             InitializeComponent();
             productos = new ConexionBD.DBProductos();
             subCategoria = new ConexionBD.DBSubCategoria();
+            Categoria = new ConexionBD.DBCategorias();
+
 
             if (modelo == null)
             {
@@ -29,12 +33,15 @@ namespace _14mayproyecrep
                 txtbxNom.Text = modelo.Nombre;
                 txtbxPrecio.Text = modelo.Precio.ToString();
                 txtbxsubcat.SelectedValue = modelo.idSubCategoria;
+                cboxcat.SelectedValue = modelo.Id;
+
                 string info = "Actualizar Producto";
                 Text = info;
                 lblTit.Text = info;
             }
 
             CargarSubCategorias();
+            CargarCategorias();
         }
 
         private void CargarSubCategorias()
@@ -45,6 +52,20 @@ namespace _14mayproyecrep
                 txtbxsubcat.DataSource = subCategorias;
                 txtbxsubcat.DisplayMember = "Nombre";
                 txtbxsubcat.ValueMember = "Id";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void CargarCategorias()
+        {
+            try
+            {
+                var Categorias = Categoria.Listar();
+                cboxcat.DataSource = Categorias;
+                cboxcat.DisplayMember = "Nombre";
+                cboxcat.ValueMember = "Id";
             }
             catch (Exception ex)
             {
@@ -104,6 +125,14 @@ namespace _14mayproyecrep
         private void mascat_Click(object sender, EventArgs e)
         {
             Form formulario = new FrmSubCatNew(null);
+            formulario.ShowDialog();
+        }
+
+        
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form formulario = new FrmCategorias(null);
             formulario.ShowDialog();
         }
     }

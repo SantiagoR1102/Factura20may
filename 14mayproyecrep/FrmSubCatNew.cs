@@ -112,5 +112,10 @@ namespace _14mayproyecrep
             Form formulario = new FrmCategorias(null);
             formulario.ShowDialog();
         }
+
+        private void FrmSubCatNew_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

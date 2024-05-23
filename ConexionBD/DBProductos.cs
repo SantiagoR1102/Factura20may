@@ -45,9 +45,14 @@ namespace ConexionBD
             List<Modelos.objProductos> r = new List<Modelos.objProductos>();
             try
             {
-                SqlDataReader dataReader = DATAREADER("SELECT a.id, a.Nombre, a.Precio, b.Nombre AS SubCategoria, b.id AS idSubCategoria " +
-                                                      "FROM Productos a " +
-                                                      "INNER JOIN SubCategoria b ON b.id = a.idSubCategoria", null);
+                string query = @"SELECT p.id, p.Nombre AS Producto, p.Precio, 
+                                 s.id AS idSubCategoria, s.Nombre AS SubCategoria, 
+                                 c.Nombre AS Categoria 
+                                 FROM Productos p 
+                                 INNER JOIN SubCategoria s ON s.id = p.idSubCategoria
+                                 INNER JOIN Categoria c ON c.id = s.idCategoria";
+
+                SqlDataReader dataReader = DATAREADER(query, null);
                 while (dataReader.Read())
                 {
                     r.Add(new Modelos.objProductos()
@@ -55,7 +60,9 @@ namespace ConexionBD
                         Id = dataReader.GetInt32(0),
                         Nombre = dataReader.GetString(1),
                         Precio = dataReader.GetInt32(2),
-                        idSubCategoria = dataReader.GetInt32(4) // Cambiado a la columna correcta
+                        idSubCategoria = dataReader.GetInt32(3),
+                        SubCategoria = dataReader.GetString(4),
+                        categoria = dataReader.GetString(5)
                     });
                 }
             }

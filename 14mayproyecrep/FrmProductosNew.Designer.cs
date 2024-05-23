@@ -30,6 +30,10 @@ namespace _14mayproyecrep
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.cboxcat = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.mascat = new System.Windows.Forms.Button();
             this.txtbxsubcat = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -41,13 +45,15 @@ namespace _14mayproyecrep
             this.label1 = new System.Windows.Forms.Label();
             this.txtbxPrecio = new System.Windows.Forms.TextBox();
             this.txtbxNom = new System.Windows.Forms.TextBox();
-            this.mascat = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.cboxcat);
+            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.mascat);
             this.panel1.Controls.Add(this.txtbxsubcat);
             this.panel1.Controls.Add(this.label4);
@@ -66,6 +72,57 @@ namespace _14mayproyecrep
             this.panel1.Size = new System.Drawing.Size(491, 450);
             this.panel1.TabIndex = 0;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Centaur", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(364, 270);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(19, 21);
+            this.button1.TabIndex = 25;
+            this.button1.Text = "+";
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // cboxcat
+            // 
+            this.cboxcat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboxcat.Location = new System.Drawing.Point(207, 267);
+            this.cboxcat.Name = "cboxcat";
+            this.cboxcat.Size = new System.Drawing.Size(151, 21);
+            this.cboxcat.TabIndex = 24;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(100, 265);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(96, 23);
+            this.label3.TabIndex = 23;
+            this.label3.Text = "Categoria:";
+            // 
+            // mascat
+            // 
+            this.mascat.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.mascat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.mascat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.mascat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.mascat.Font = new System.Drawing.Font("Centaur", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mascat.ForeColor = System.Drawing.Color.Black;
+            this.mascat.Location = new System.Drawing.Point(364, 227);
+            this.mascat.Name = "mascat";
+            this.mascat.Size = new System.Drawing.Size(19, 21);
+            this.mascat.TabIndex = 22;
+            this.mascat.Text = "+";
+            this.mascat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.mascat.UseVisualStyleBackColor = false;
+            // 
             // txtbxsubcat
             // 
             this.txtbxsubcat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -80,9 +137,9 @@ namespace _14mayproyecrep
             this.label4.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(98, 222);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(101, 23);
+            this.label4.Size = new System.Drawing.Size(77, 23);
             this.label4.TabIndex = 20;
-            this.label4.Text = "Id SubCat:";
+            this.label4.Text = "SubCat:";
             // 
             // pictureBox1
             // 
@@ -101,7 +158,7 @@ namespace _14mayproyecrep
             this.btnEnviaPro.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnEnviaPro.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEnviaPro.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEnviaPro.Location = new System.Drawing.Point(102, 291);
+            this.btnEnviaPro.Location = new System.Drawing.Point(102, 329);
             this.btnEnviaPro.Name = "btnEnviaPro";
             this.btnEnviaPro.Size = new System.Drawing.Size(308, 34);
             this.btnEnviaPro.TabIndex = 17;
@@ -173,23 +230,6 @@ namespace _14mayproyecrep
             this.txtbxNom.Size = new System.Drawing.Size(151, 20);
             this.txtbxNom.TabIndex = 1;
             // 
-            // mascat
-            // 
-            this.mascat.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.mascat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.mascat.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.mascat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.mascat.Font = new System.Drawing.Font("Centaur", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mascat.ForeColor = System.Drawing.Color.Black;
-            this.mascat.Location = new System.Drawing.Point(364, 227);
-            this.mascat.Name = "mascat";
-            this.mascat.Size = new System.Drawing.Size(19, 21);
-            this.mascat.TabIndex = 22;
-            this.mascat.Text = "+";
-            this.mascat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.mascat.UseVisualStyleBackColor = false;
-            this.mascat.Click += new System.EventHandler(this.mascat_Click);
-            // 
             // FrmProductosNew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -220,5 +260,8 @@ namespace _14mayproyecrep
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox txtbxsubcat;
         private System.Windows.Forms.Button mascat;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox cboxcat;
+        private System.Windows.Forms.Label label3;
     }
 }

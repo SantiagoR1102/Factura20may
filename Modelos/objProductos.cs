@@ -1,14 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Modelos
+﻿namespace Modelos
 {
-    public class objProductos:objBase
+    public class objProductos : objBase
     {
-        public int idSubCategoria { get; set; } 
+        public int idSubCategoria { get; set; }
         public int Precio { get; set; }
+        public string categoria { get; set; }
+        public string SubCategoria { get; set; }
+
+        //public objCategoria categoria { get; set; } = new objCategoria();
+        //    public objSubCategoria SubCategoria { get; set; } = new objSubCategoria();
+
+
     }
 }

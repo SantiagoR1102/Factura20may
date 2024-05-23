@@ -31,15 +31,16 @@ namespace _14mayproyecrep
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.listViewPro = new System.Windows.Forms.ListView();
+            this.idPro = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.nombre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Precioo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Categoria = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.SubCategoria = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnNewPro = new System.Windows.Forms.Button();
             this.Refrescar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.idPro = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.nombre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Precioo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.idSubCategoria = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -64,7 +65,8 @@ namespace _14mayproyecrep
             this.idPro,
             this.nombre,
             this.Precioo,
-            this.idSubCategoria});
+            this.Categoria,
+            this.SubCategoria});
             this.listViewPro.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listViewPro.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewPro.GridLines = true;
@@ -77,6 +79,31 @@ namespace _14mayproyecrep
             this.listViewPro.UseCompatibleStateImageBehavior = false;
             this.listViewPro.View = System.Windows.Forms.View.Details;
             this.listViewPro.SelectedIndexChanged += new System.EventHandler(this.listViewPro_SelectedIndexChanged);
+            // 
+            // idPro
+            // 
+            this.idPro.Text = "Id";
+            this.idPro.Width = 55;
+            // 
+            // nombre
+            // 
+            this.nombre.Text = "Nombre";
+            this.nombre.Width = 200;
+            // 
+            // Precioo
+            // 
+            this.Precioo.Text = "Precio";
+            this.Precioo.Width = 150;
+            // 
+            // Categoria
+            // 
+            this.Categoria.Text = "Categoria";
+            this.Categoria.Width = 120;
+            // 
+            // SubCategoria
+            // 
+            this.SubCategoria.Text = "SubCategoria";
+            this.SubCategoria.Width = 100;
             // 
             // panel2
             // 
@@ -146,26 +173,6 @@ namespace _14mayproyecrep
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // idPro
-            // 
-            this.idPro.Text = "Id";
-            this.idPro.Width = 55;
-            // 
-            // nombre
-            // 
-            this.nombre.Text = "Nombre";
-            this.nombre.Width = 200;
-            // 
-            // Precioo
-            // 
-            this.Precioo.Text = "Precio";
-            this.Precioo.Width = 150;
-            // 
-            // idSubCategoria
-            // 
-            this.idSubCategoria.Text = "idSubCategoria";
-            this.idSubCategoria.Width = 150;
-            // 
             // FrmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -194,6 +201,7 @@ namespace _14mayproyecrep
         private System.Windows.Forms.ColumnHeader idPro;
         private System.Windows.Forms.ColumnHeader nombre;
         private System.Windows.Forms.ColumnHeader Precioo;
-        private System.Windows.Forms.ColumnHeader idSubCategoria;
+        private System.Windows.Forms.ColumnHeader Categoria;
+        private System.Windows.Forms.ColumnHeader SubCategoria;
     }
 }
