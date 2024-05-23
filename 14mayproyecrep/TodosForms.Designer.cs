@@ -30,15 +30,17 @@ namespace _14mayproyecrep
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnProd = new System.Windows.Forms.Button();
             this.FormSubCat = new System.Windows.Forms.Button();
             this.FormCliente = new System.Windows.Forms.Button();
             this.FormCategoria = new System.Windows.Forms.Button();
-            this.btnProd = new System.Windows.Forms.Button();
+            this.Factura = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.Factura);
             this.panel1.Controls.Add(this.btnProd);
             this.panel1.Controls.Add(this.FormSubCat);
             this.panel1.Controls.Add(this.FormCliente);
@@ -46,8 +48,23 @@ namespace _14mayproyecrep
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 450);
+            this.panel1.Size = new System.Drawing.Size(800, 502);
             this.panel1.TabIndex = 0;
+            // 
+            // btnProd
+            // 
+            this.btnProd.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnProd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProd.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProd.ForeColor = System.Drawing.Color.Black;
+            this.btnProd.Location = new System.Drawing.Point(432, 266);
+            this.btnProd.Name = "btnProd";
+            this.btnProd.Size = new System.Drawing.Size(292, 49);
+            this.btnProd.TabIndex = 3;
+            this.btnProd.Text = "Productos";
+            this.btnProd.UseVisualStyleBackColor = false;
+            this.btnProd.Click += new System.EventHandler(this.btnProd_Click);
             // 
             // FormSubCat
             // 
@@ -94,26 +111,26 @@ namespace _14mayproyecrep
             this.FormCategoria.UseVisualStyleBackColor = false;
             this.FormCategoria.Click += new System.EventHandler(this.FormCategoria_Click);
             // 
-            // btnProd
+            // Factura
             // 
-            this.btnProd.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnProd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProd.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProd.ForeColor = System.Drawing.Color.Black;
-            this.btnProd.Location = new System.Drawing.Point(432, 266);
-            this.btnProd.Name = "btnProd";
-            this.btnProd.Size = new System.Drawing.Size(292, 49);
-            this.btnProd.TabIndex = 3;
-            this.btnProd.Text = "Productos";
-            this.btnProd.UseVisualStyleBackColor = false;
-            this.btnProd.Click += new System.EventHandler(this.btnProd_Click);
+            this.Factura.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.Factura.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Factura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Factura.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Factura.ForeColor = System.Drawing.Color.Black;
+            this.Factura.Location = new System.Drawing.Point(249, 360);
+            this.Factura.Name = "Factura";
+            this.Factura.Size = new System.Drawing.Size(292, 49);
+            this.Factura.TabIndex = 4;
+            this.Factura.Text = "Factura";
+            this.Factura.UseVisualStyleBackColor = false;
+            this.Factura.Click += new System.EventHandler(this.Factura_Click);
             // 
             // TodosForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 502);
             this.Controls.Add(this.panel1);
             this.Name = "TodosForms";
             this.Text = "TodosForms";
@@ -129,5 +146,6 @@ namespace _14mayproyecrep
         private System.Windows.Forms.Button FormCliente;
         private System.Windows.Forms.Button FormCategoria;
         private System.Windows.Forms.Button btnProd;
+        private System.Windows.Forms.Button Factura;
     }
 }

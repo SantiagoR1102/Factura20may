@@ -164,7 +164,7 @@ namespace _14mayproyecrep
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox1.Image = global::_14mayproyecrep.Properties.Resources.Registro;
+            this.pictureBox1.Image = global::_14mayproyecrep.Properties.Resources.subcat_64;
             this.pictureBox1.Location = new System.Drawing.Point(10, 10);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(55, 58);

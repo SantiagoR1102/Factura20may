@@ -45,12 +45,16 @@ namespace _14mayproyecrep
             this.label1 = new System.Windows.Forms.Label();
             this.txtbxPrecio = new System.Windows.Forms.TextBox();
             this.txtbxNom = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtbxCodPro = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.txtbxCodPro);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.cboxcat);
             this.panel1.Controls.Add(this.label3);
@@ -69,8 +73,9 @@ namespace _14mayproyecrep
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(491, 450);
+            this.panel1.Size = new System.Drawing.Size(525, 503);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // button1
             // 
@@ -80,7 +85,7 @@ namespace _14mayproyecrep
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Centaur", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(364, 270);
+            this.button1.Location = new System.Drawing.Point(364, 345);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(19, 21);
             this.button1.TabIndex = 25;
@@ -92,7 +97,7 @@ namespace _14mayproyecrep
             // cboxcat
             // 
             this.cboxcat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboxcat.Location = new System.Drawing.Point(207, 267);
+            this.cboxcat.Location = new System.Drawing.Point(207, 342);
             this.cboxcat.Name = "cboxcat";
             this.cboxcat.Size = new System.Drawing.Size(151, 21);
             this.cboxcat.TabIndex = 24;
@@ -101,7 +106,7 @@ namespace _14mayproyecrep
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(100, 265);
+            this.label3.Location = new System.Drawing.Point(100, 340);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(96, 23);
             this.label3.TabIndex = 23;
@@ -115,7 +120,7 @@ namespace _14mayproyecrep
             this.mascat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mascat.Font = new System.Drawing.Font("Centaur", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mascat.ForeColor = System.Drawing.Color.Black;
-            this.mascat.Location = new System.Drawing.Point(364, 227);
+            this.mascat.Location = new System.Drawing.Point(364, 302);
             this.mascat.Name = "mascat";
             this.mascat.Size = new System.Drawing.Size(19, 21);
             this.mascat.TabIndex = 22;
@@ -126,7 +131,7 @@ namespace _14mayproyecrep
             // txtbxsubcat
             // 
             this.txtbxsubcat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.txtbxsubcat.Location = new System.Drawing.Point(207, 227);
+            this.txtbxsubcat.Location = new System.Drawing.Point(207, 302);
             this.txtbxsubcat.Name = "txtbxsubcat";
             this.txtbxsubcat.Size = new System.Drawing.Size(151, 21);
             this.txtbxsubcat.TabIndex = 21;
@@ -135,7 +140,7 @@ namespace _14mayproyecrep
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(98, 222);
+            this.label4.Location = new System.Drawing.Point(98, 297);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 23);
             this.label4.TabIndex = 20;
@@ -158,7 +163,7 @@ namespace _14mayproyecrep
             this.btnEnviaPro.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnEnviaPro.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEnviaPro.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEnviaPro.Location = new System.Drawing.Point(102, 329);
+            this.btnEnviaPro.Location = new System.Drawing.Point(102, 404);
             this.btnEnviaPro.Name = "btnEnviaPro";
             this.btnEnviaPro.Size = new System.Drawing.Size(308, 34);
             this.btnEnviaPro.TabIndex = 17;
@@ -230,11 +235,28 @@ namespace _14mayproyecrep
             this.txtbxNom.Size = new System.Drawing.Size(151, 20);
             this.txtbxNom.TabIndex = 1;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(98, 223);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(107, 23);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "Codigo Pro:";
+            // 
+            // txtbxCodPro
+            // 
+            this.txtbxCodPro.Location = new System.Drawing.Point(207, 223);
+            this.txtbxCodPro.Name = "txtbxCodPro";
+            this.txtbxCodPro.Size = new System.Drawing.Size(151, 20);
+            this.txtbxCodPro.TabIndex = 26;
+            // 
             // FrmProductosNew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(491, 450);
+            this.ClientSize = new System.Drawing.Size(525, 503);
             this.Controls.Add(this.panel1);
             this.Name = "FrmProductosNew";
             this.Text = "Nuevo Producto";
@@ -263,5 +285,7 @@ namespace _14mayproyecrep
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox cboxcat;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtbxCodPro;
     }
 }

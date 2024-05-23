@@ -7,10 +7,10 @@ namespace ConexionBD
 {
     public class DBCliente : ConexBD
     {
-        public bool GuardarClie(int id, string Nombre, string Apellido, string Correo, int Telefono, string Direccion)
+        public bool GuardarClie(int id, string Nombre, string Apellido, string Correo, int Telefono, string Direccion, int Cedula)
         {
-            string Query = id > 0 ? "UPDATE Cliente SET Nombre=@Nombre, Apellido=@Apellido, Correo=@Correo, Telefono=@Telefono, Direccion=@Direccion WHERE Id=@Id" :
-                                    "INSERT INTO Cliente (Nombre, Apellido, Correo, Telefono, Direccion) VALUES (@Nombre, @Apellido, @Correo, @Telefono, @Direccion)";
+            string Query = id > 0 ? "UPDATE Cliente SET Nombre=@Nombre, Apellido=@Apellido, Correo=@Correo, Telefono=@Telefono, Direccion=@Direccion, Cedula=@Cedula WHERE Id=@Id" :
+                                    "INSERT INTO Cliente (Nombre, Apellido, Correo, Telefono, Direccion,Cedula) VALUES (@Nombre, @Apellido, @Correo, @Telefono, @Direccion, @Cedula)";
             bool rs = false;
             try
             {
@@ -20,6 +20,8 @@ namespace ConexionBD
                 parameters.Add(new SqlParameter("@Correo", Correo));
                 parameters.Add(new SqlParameter("@Telefono", Telefono));
                 parameters.Add(new SqlParameter("@Direccion", Direccion));
+                parameters.Add(new SqlParameter("@Cedula", Cedula));
+
 
                 if (id > 0)
                 {
@@ -91,7 +93,7 @@ namespace ConexionBD
 
             try
             {
-                dataReader = DATAREADER("SELECT id, Nombre, Apellido, Correo, Telefono, Direccion FROM Cliente", null);
+                dataReader = DATAREADER("SELECT id, Nombre, Apellido, Correo, Telefono, Direccion, Cedula FROM Cliente", null);
                 while (dataReader.Read())
                 {
                     r.Add(new Modelos.objCliente()
@@ -101,7 +103,9 @@ namespace ConexionBD
                         Apellido= dataReader.GetString(2),
                         Correo = dataReader.GetString(3),
                         Direccion = dataReader.GetString(5),
-                        Telefono = dataReader.GetInt32(4)
+                        Telefono = dataReader.GetInt32(4),
+                        Cedula = dataReader.GetInt32(6)
+
 
                     });
                 }

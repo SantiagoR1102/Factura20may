@@ -44,6 +44,7 @@ namespace _14mayproyecrep
             this.NuevoClie = new System.Windows.Forms.Button();
             this.RefrescarClie = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Cedula = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -70,7 +71,8 @@ namespace _14mayproyecrep
             this.ApellidoClie,
             this.CorreoCLi,
             this.Telefonocli,
-            this.DireccionClie});
+            this.DireccionClie,
+            this.Cedula});
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView1.ForeColor = System.Drawing.Color.White;
@@ -100,23 +102,23 @@ namespace _14mayproyecrep
             // ApellidoClie
             // 
             this.ApellidoClie.Text = "Apellido";
-            this.ApellidoClie.Width = 159;
+            this.ApellidoClie.Width = 140;
             // 
             // CorreoCLi
             // 
             this.CorreoCLi.Text = "Correo";
-            this.CorreoCLi.Width = 208;
+            this.CorreoCLi.Width = 150;
             // 
             // Telefonocli
             // 
             this.Telefonocli.Text = "Telefono";
-            this.Telefonocli.Width = 186;
+            this.Telefonocli.Width = 150;
             // 
             // DireccionClie
             // 
             this.DireccionClie.Tag = "";
             this.DireccionClie.Text = "Dirección";
-            this.DireccionClie.Width = 207;
+            this.DireccionClie.Width = 150;
             // 
             // panel2
             // 
@@ -189,6 +191,11 @@ namespace _14mayproyecrep
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // Cedula
+            // 
+            this.Cedula.Text = "Cedula";
+            this.Cedula.Width = 150;
+            // 
             // FrmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -220,5 +227,6 @@ namespace _14mayproyecrep
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button RefrescarClie;
         protected internal System.Windows.Forms.Button NuevoClie;
+        private System.Windows.Forms.ColumnHeader Cedula;
     }
 }

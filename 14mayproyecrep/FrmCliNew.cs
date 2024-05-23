@@ -14,14 +14,7 @@ namespace _14mayproyecrep
         {
             InitializeComponent();
             cliente = new ConexionBD.DBCliente();
-            /*txtId.Text = modelo.Id.ToString();
-            txtbxNombre.Text = modelo.Nombre;
-            txtbxapellido.Text = modelo.Apellido;
-            txtbxCorreo.Text = modelo.Correo;
-            txtbxTelefono.Text = modelo.Telefono.ToString();
-            txtbxDireccion.Text = modelo.Direccion;
-            string info = modelo.Id == 0 ? "Nuevo Cliente" : "Actualizar Cliente";
-            Text = info; lblClie.Text = info;*/
+            
 
 
             if (modelo == null)
@@ -38,6 +31,8 @@ namespace _14mayproyecrep
                 txtbxCorreo.Text = modelo.Correo;
                 txtbxTelefono.Text = modelo.Telefono.ToString();
                 txtbxDireccion.Text = modelo.Direccion;
+                txtbxCedula.Text = modelo.Cedula.ToString();
+
                 string info = "Actualizar Cliente";
                 Text = info; lblClie.Text = info;
             }
@@ -79,6 +74,13 @@ namespace _14mayproyecrep
                     MessageBox.Show("El campo Dirección no puede estar vacío");
                     return;
                 }
+                if (string.IsNullOrWhiteSpace(txtbxCedula.Text))
+                {
+                    MessageBox.Show("El campo Cedula no puede estar vacío");
+                    return;
+                }
+
+
                 if (HasNumbers(txtbxNombre.Text) || HasNumbers(txtbxapellido.Text))
                 {
                     MessageBox.Show("Nombre y Apellido no pueden contener números");
@@ -86,7 +88,7 @@ namespace _14mayproyecrep
                 }
                 if (!IsNumeric(txtbxTelefono.Text))
                 {
-                    MessageBox.Show("El teléfono debe ser un número entero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("El teléfono  debe ser un número entero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -94,7 +96,8 @@ namespace _14mayproyecrep
 
                 // Guardar datos
                 int id = Convert.ToInt32(txtId.Text);
-                bool rs = cliente.GuardarClie(id, txtbxNombre.Text, txtbxapellido.Text, txtbxCorreo.Text, Convert.ToInt32(txtbxTelefono.Text), txtbxDireccion.Text);
+                bool rs = cliente.GuardarClie(id, txtbxNombre.Text, txtbxapellido.Text, txtbxCorreo.Text, Convert.ToInt32(txtbxTelefono.Text), 
+                    txtbxDireccion.Text, Convert.ToInt32(txtbxCedula.Text));
                 if (rs)
                 {
                     MessageBox.Show("Datos guardados con éxito", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -103,6 +106,8 @@ namespace _14mayproyecrep
                     txtbxCorreo.Text = "";
                     txtbxTelefono.Text = "";
                     txtbxDireccion.Text = "";
+                    txtbxCedula.Text = "";
+
                 }
             }
             catch (Exception ex)

@@ -64,6 +64,12 @@
     <Compile Include="FrmCliNew.Designer.cs">
       <DependentUpon>FrmCliNew.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmFacturacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFacturacion.Designer.cs">
+      <DependentUpon>FrmFacturacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmNewCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +102,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="TodosForms.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCliNew.resx">
       <DependentUpon>FrmCliNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmFacturacion.resx">
+      <DependentUpon>FrmFacturacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmNewCategoria.resx">
       <DependentUpon>FrmNewCategoria.cs</DependentUpon>
@@ -128,14 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="TodosForms.resx">
       <DependentUpon>TodosForms.cs</DependentUpon>
     </EmbeddedResource>
@@ -194,6 +203,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\productos64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Factura64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Factura641.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Categoria64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lupaeh32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

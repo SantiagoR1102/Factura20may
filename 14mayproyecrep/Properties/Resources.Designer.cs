@@ -73,6 +73,16 @@ namespace _14mayproyecrep.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Categoria64 {
+            get {
+                object obj = ResourceManager.GetObject("Categoria64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cliente_64 {
             get {
                 object obj = ResourceManager.GetObject("cliente-64", resourceCulture);
@@ -106,6 +116,36 @@ namespace _14mayproyecrep.Properties {
         internal static System.Drawing.Bitmap eliminar_64 {
             get {
                 object obj = ResourceManager.GetObject("eliminar_64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Factura64 {
+            get {
+                object obj = ResourceManager.GetObject("Factura64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Factura641 {
+            get {
+                object obj = ResourceManager.GetObject("Factura641", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lupaeh32 {
+            get {
+                object obj = ResourceManager.GetObject("lupaeh32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

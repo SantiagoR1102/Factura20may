@@ -45,6 +45,8 @@ namespace _14mayproyecrep
                 item.SubItems.Add(ListaCliente[x].Correo);
                 item.SubItems.Add(ListaCliente[x].Telefono.ToString());
                 item.SubItems.Add(ListaCliente[x].Direccion);
+                item.SubItems.Add(ListaCliente[x].Cedula.ToString());
+
                 listView1.Items.Add(item);
             }
 
@@ -69,7 +71,8 @@ namespace _14mayproyecrep
                         //Cedula = Convert.ToInt32(listView1.SelectedItems[0].SubItems[3].Text),
                         Correo = listView1.SelectedItems[0].SubItems[3].Text,
                         Telefono = Convert.ToInt32(listView1.SelectedItems[0].SubItems[4].Text),
-                        Direccion = listView1.SelectedItems[0].SubItems[5].Text
+                        Direccion = listView1.SelectedItems[0].SubItems[5].Text,
+                        Cedula= Convert.ToInt32(listView1.SelectedItems[0].SubItems[6].Text)
                     };
                     Form formulario = new FrmCliNew(modelo);
                     formulario.ShowDialog();

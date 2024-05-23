@@ -44,6 +44,8 @@ namespace _14mayproyecrep
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtId = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.txtbxCedula = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -150,7 +152,7 @@ namespace _14mayproyecrep
             this.EnviarCliente.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.EnviarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.EnviarCliente.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EnviarCliente.Location = new System.Drawing.Point(74, 462);
+            this.EnviarCliente.Location = new System.Drawing.Point(74, 518);
             this.EnviarCliente.Name = "EnviarCliente";
             this.EnviarCliente.Size = new System.Drawing.Size(308, 34);
             this.EnviarCliente.TabIndex = 11;
@@ -189,12 +191,31 @@ namespace _14mayproyecrep
             this.label7.TabIndex = 14;
             this.label7.Text = "Id";
             // 
+            // txtbxCedula
+            // 
+            this.txtbxCedula.Location = new System.Drawing.Point(74, 468);
+            this.txtbxCedula.Name = "txtbxCedula";
+            this.txtbxCedula.Size = new System.Drawing.Size(308, 20);
+            this.txtbxCedula.TabIndex = 16;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(70, 442);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(75, 23);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Cedula";
+            // 
             // FrmCliNew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(444, 564);
+            this.ClientSize = new System.Drawing.Size(449, 603);
+            this.Controls.Add(this.txtbxCedula);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.pictureBox1);
@@ -237,5 +258,7 @@ namespace _14mayproyecrep
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtbxCedula;
+        private System.Windows.Forms.Label label6;
     }
 }

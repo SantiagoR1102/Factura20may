@@ -35,6 +35,8 @@ namespace _14mayproyecrep
                     item.SubItems.Add(producto.Precio.ToString());
                     item.SubItems.Add(producto.SubCategoria.ToString());
                     item.SubItems.Add(producto.categoria.ToString());
+                    item.SubItems.Add(producto.CodPro.ToString());
+
 
                     listViewPro.Items.Add(item);
                 }
@@ -59,7 +61,10 @@ namespace _14mayproyecrep
                         Id = id,
                         Nombre = selectedItem.SubItems[1].Text,
                         Precio = Convert.ToInt32(selectedItem.SubItems[2].Text),
-                        idSubCategoria = Convert.ToInt32(selectedItem.SubItems[3].Text)
+
+                        idSubCategoria = Convert.ToInt32(selectedItem.SubItems[3].Text),
+                        CodPro = Convert.ToInt32(selectedItem.SubItems[4].Text),
+
                     };
                     Form formulario = new FrmProductosNew(modelo);
                     formulario.ShowDialog();
@@ -75,6 +80,11 @@ namespace _14mayproyecrep
         {
             Form formulario = new FrmProductosNew(null);
             formulario.ShowDialog();
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

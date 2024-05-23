@@ -4,6 +4,8 @@
     {
         public int idSubCategoria { get; set; }
         public int Precio { get; set; }
+        public int CodPro { get; set; }
+
         public string categoria { get; set; }
         public string SubCategoria { get; set; }
 

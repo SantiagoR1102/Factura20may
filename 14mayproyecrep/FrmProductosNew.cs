@@ -32,6 +32,8 @@ namespace _14mayproyecrep
                 txtId.Text = modelo.Id.ToString();
                 txtbxNom.Text = modelo.Nombre;
                 txtbxPrecio.Text = modelo.Precio.ToString();
+                txtbxCodPro.Text = modelo.CodPro.ToString();
+
                 txtbxsubcat.SelectedValue = modelo.idSubCategoria;
                 cboxcat.SelectedValue = modelo.Id;
 
@@ -92,6 +94,12 @@ namespace _14mayproyecrep
                     MessageBox.Show("El campo Precio debe ser un número válido");
                     return;
                 }
+
+                if (string.IsNullOrWhiteSpace(txtbxCodPro.Text) || !uint.TryParse(txtbxCodPro.Text, out uint codpro))
+                {
+                    MessageBox.Show("El campo Codigo Producto debe ser un número válido");
+                    return;
+                }
                 if (txtbxsubcat.SelectedValue == null || !int.TryParse(txtbxsubcat.SelectedValue.ToString(), out int idSubCategoria))
                 {
                     MessageBox.Show("Por favor, seleccione una subcategoría válida");
@@ -99,7 +107,7 @@ namespace _14mayproyecrep
                 }
 
                 int id = string.IsNullOrEmpty(txtId.Text) ? 0 : Convert.ToInt32(txtId.Text);
-                bool rs = productos.Guardar(id, txtbxNom.Text, (int)precio, idSubCategoria);
+                bool rs = productos.Guardar(id, txtbxNom.Text, (int)precio, idSubCategoria, (int)codpro);
 
                 if (rs)
                 {
@@ -109,6 +117,8 @@ namespace _14mayproyecrep
                 // Limpiar campos
                 txtbxNom.Text = "";
                 txtbxPrecio.Text = "";
+                txtbxCodPro.Text = "";
+
                 txtbxsubcat.SelectedIndex = -1;
             }
             catch (Exception ex)
@@ -134,6 +144,11 @@ namespace _14mayproyecrep
         {
             Form formulario = new FrmCategorias(null);
             formulario.ShowDialog();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

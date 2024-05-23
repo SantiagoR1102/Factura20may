@@ -41,6 +41,7 @@ namespace _14mayproyecrep
             this.btnNewPro = new System.Windows.Forms.Button();
             this.Refrescar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.CodigoPro = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -66,7 +67,8 @@ namespace _14mayproyecrep
             this.nombre,
             this.Precioo,
             this.Categoria,
-            this.SubCategoria});
+            this.SubCategoria,
+            this.CodigoPro});
             this.listViewPro.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listViewPro.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewPro.GridLines = true;
@@ -114,6 +116,7 @@ namespace _14mayproyecrep
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(800, 62);
             this.panel2.TabIndex = 0;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // panel3
             // 
@@ -173,6 +176,11 @@ namespace _14mayproyecrep
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
+            // CodigoPro
+            // 
+            this.CodigoPro.Text = "CodigoPro";
+            this.CodigoPro.Width = 150;
+            // 
             // FrmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -203,5 +211,6 @@ namespace _14mayproyecrep
         private System.Windows.Forms.ColumnHeader Precioo;
         private System.Windows.Forms.ColumnHeader Categoria;
         private System.Windows.Forms.ColumnHeader SubCategoria;
+        private System.Windows.Forms.ColumnHeader CodigoPro;
     }
 }

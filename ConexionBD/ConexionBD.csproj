@@ -44,6 +44,7 @@
     <Compile Include="ConexBD.cs" />
     <Compile Include="DBCategorias.cs" />
     <Compile Include="DBCliente.cs" />
+    <Compile Include="DBFacturacion.cs" />
     <Compile Include="DBProductos.cs" />
     <Compile Include="DBSubCategoria.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -33,5 +33,11 @@ namespace _14mayproyecrep
             Form formulario = new FrmProductos(null);
             formulario.ShowDialog();
         }
+
+        private void Factura_Click(object sender, EventArgs e)
+        {
+            Form formulario = new FrmFacturacion(null);
+            formulario.ShowDialog();
+        }
     }
 }
