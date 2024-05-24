@@ -60,6 +60,7 @@ namespace _14mayproyecrep
         private void btnBuscarCodigo_Click(object sender, EventArgs e)
         {
 
+
             string codigo = txtbxCodigo.Text.Trim();
 
             if (string.IsNullOrWhiteSpace(codigo))
@@ -70,22 +71,26 @@ namespace _14mayproyecrep
 
             try
             {
-                int? precio = Facturacion.BuscarPrecioPorCodigo(codigo);
-                if (precio.HasValue)
+                var resultado = Facturacion.BuscarProductoPorCodigo(codigo);
+                if (resultado.Nombre != null)
                 {
-                    txtBxprecio.Text = precio.Value.ToString();
+                    txtbxDesc.Text = resultado.Nombre;
+                    txtBxprecio.Text = resultado.Precio.HasValue ? resultado.Precio.Value.ToString() : string.Empty;
                 }
                 else
                 {
                     MessageBox.Show($"No se encontró ningún producto con el código {codigo}.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtbxDesc.Text = string.Empty;
                     txtBxprecio.Text = string.Empty;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al buscar el código: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al buscar el producto: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
     }
+
 }
+
+

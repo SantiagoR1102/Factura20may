@@ -36,12 +36,12 @@ namespace _14mayproyecrep
             this.Precioo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Categoria = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SubCategoria = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.CodigoPro = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnNewPro = new System.Windows.Forms.Button();
             this.Refrescar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.CodigoPro = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -106,6 +106,11 @@ namespace _14mayproyecrep
             // 
             this.SubCategoria.Text = "SubCategoria";
             this.SubCategoria.Width = 100;
+            // 
+            // CodigoPro
+            // 
+            this.CodigoPro.Text = "CodigoPro";
+            this.CodigoPro.Width = 150;
             // 
             // panel2
             // 
@@ -176,11 +181,6 @@ namespace _14mayproyecrep
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // CodigoPro
-            // 
-            this.CodigoPro.Text = "CodigoPro";
-            this.CodigoPro.Width = 150;
-            // 
             // FrmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -189,6 +189,7 @@ namespace _14mayproyecrep
             this.Controls.Add(this.panel1);
             this.Name = "FrmProductos";
             this.Text = "Productos";
+            this.Load += new System.EventHandler(this.FrmProductos_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);

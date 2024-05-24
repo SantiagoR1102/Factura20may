@@ -86,5 +86,10 @@ namespace _14mayproyecrep
         {
 
         }
+
+        private void FrmProductos_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

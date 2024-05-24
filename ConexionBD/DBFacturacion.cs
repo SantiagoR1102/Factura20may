@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using Modelos;
 
 namespace ConexionBD
 {
@@ -44,33 +43,40 @@ namespace ConexionBD
         }
 
         //Busca el codigo del producto y trae el precio
-        public int? BuscarPrecioPorCodigo(string codigoPro)
+
+        
+        public (string Nombre, int? Precio) BuscarProductoPorCodigo(string codigoPro)
         {
+            string nombre = null;
             int? precio = null;
-            string query = "SELECT Precio FROM Productos WHERE CodigoPro = @CodigoPro";
+            string query = "SELECT Nombre, Precio FROM Productos WHERE CodigoPro = @CodigoPro";
+
             try
             {
                 List<SqlParameter> parameters = new List<SqlParameter>
                 {
                     new SqlParameter("@CodigoPro", codigoPro)
                 };
+
                 SqlDataReader reader = DATAREADER(query, parameters);
+
                 if (reader.Read())
                 {
-                    precio = reader.GetInt32(0);
+                    nombre = reader.GetString(0);
+                    precio = reader.GetInt32(1);
                 }
+
                 reader.Close();
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al buscar el Precio del Producto: " + ex.Message);
             }
             finally
             {
                 CerrarConexion();
             }
 
-            return precio;
+            return (nombre, precio);
         }
 
     }

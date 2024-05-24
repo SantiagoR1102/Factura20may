@@ -143,6 +143,16 @@ namespace _14mayproyecrep.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap lupa16 {
+            get {
+                object obj = ResourceManager.GetObject("lupa16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap lupaeh32 {
             get {
                 object obj = ResourceManager.GetObject("lupaeh32", resourceCulture);
