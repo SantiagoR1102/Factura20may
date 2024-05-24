@@ -60,6 +60,35 @@ namespace _14mayproyecrep
         {
             txtNombreCliente.Text = string.Empty;
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string cedula = txtBuscarCliente.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(cedula))
+            {
+                MessageBox.Show("Por favor, ingrese una cédula.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                string nombre = Facturacion.BuscarNombrePorCedula(cedula);
+                if (nombre != null)
+                {
+                    txtNombreCliente.Text = nombre;
+                }
+                else
+                {
+                    MessageBox.Show($"No se encontró ningún cliente con la cédula {cedula}.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtNombreCliente.Text = string.Empty;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al buscar el nombre del cliente: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
 
