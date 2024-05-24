@@ -31,7 +31,8 @@ namespace _14mayproyecrep
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listafac = new System.Windows.Forms.ListView();
+            this.id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Codigo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Nombre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Cantidad = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -47,22 +48,23 @@ namespace _14mayproyecrep
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnBuscarCodigo = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.txtbxCodigo = new System.Windows.Forms.TextBox();
-            this.txtNombreCliente = new System.Windows.Forms.TextBox();
             this.txtBxCantidad = new System.Windows.Forms.TextBox();
             this.txtBxprecio = new System.Windows.Forms.TextBox();
             this.AggFac = new System.Windows.Forms.Button();
+            this.txtbxDesc = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtid = new System.Windows.Forms.TextBox();
+            this.txtNombreCliente = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtBuscarCliente = new System.Windows.Forms.TextBox();
-            this.txtbxDesc = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnBuscarCodigo = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -89,32 +91,38 @@ namespace _14mayproyecrep
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.listView1);
+            this.panel6.Controls.Add(this.listafac);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(0, 116);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(728, 449);
             this.panel6.TabIndex = 4;
             // 
-            // listView1
+            // listafac
             // 
-            this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listafac.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listafac.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.id,
             this.Codigo,
             this.Nombre,
             this.Cantidad,
             this.Precio,
             this.Total});
-            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView1.GridLines = true;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(0, 0);
-            this.listView1.MultiSelect = false;
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(728, 449);
-            this.listView1.TabIndex = 1;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listafac.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listafac.GridLines = true;
+            this.listafac.HideSelection = false;
+            this.listafac.Location = new System.Drawing.Point(0, 0);
+            this.listafac.MultiSelect = false;
+            this.listafac.Name = "listafac";
+            this.listafac.Size = new System.Drawing.Size(728, 449);
+            this.listafac.TabIndex = 1;
+            this.listafac.UseCompatibleStateImageBehavior = false;
+            this.listafac.View = System.Windows.Forms.View.Details;
+            // 
+            // id
+            // 
+            this.id.Text = "id";
+            this.id.Width = 20;
             // 
             // Codigo
             // 
@@ -248,6 +256,20 @@ namespace _14mayproyecrep
             this.label4.TabIndex = 7;
             this.label4.Text = "Cantidad";
             // 
+            // btnBuscarCodigo
+            // 
+            this.btnBuscarCodigo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBuscarCodigo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscarCodigo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnBuscarCodigo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarCodigo.Image = global::_14mayproyecrep.Properties.Resources.lupa16;
+            this.btnBuscarCodigo.Location = new System.Drawing.Point(692, 3);
+            this.btnBuscarCodigo.Name = "btnBuscarCodigo";
+            this.btnBuscarCodigo.Size = new System.Drawing.Size(33, 20);
+            this.btnBuscarCodigo.TabIndex = 6;
+            this.btnBuscarCodigo.UseVisualStyleBackColor = false;
+            this.btnBuscarCodigo.Click += new System.EventHandler(this.btnBuscarCodigo_Click);
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 5;
@@ -278,14 +300,6 @@ namespace _14mayproyecrep
             this.txtbxCodigo.Size = new System.Drawing.Size(66, 20);
             this.txtbxCodigo.TabIndex = 0;
             // 
-            // txtNombreCliente
-            // 
-            this.txtNombreCliente.Location = new System.Drawing.Point(107, 41);
-            this.txtNombreCliente.Name = "txtNombreCliente";
-            this.txtNombreCliente.ReadOnly = true;
-            this.txtNombreCliente.Size = new System.Drawing.Size(120, 20);
-            this.txtNombreCliente.TabIndex = 1;
-            // 
             // txtBxCantidad
             // 
             this.txtBxCantidad.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -315,9 +329,20 @@ namespace _14mayproyecrep
             this.AggFac.TabIndex = 4;
             this.AggFac.Text = "+";
             this.AggFac.UseVisualStyleBackColor = false;
+            this.AggFac.Click += new System.EventHandler(this.AggFac_Click);
+            // 
+            // txtbxDesc
+            // 
+            this.txtbxDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtbxDesc.Location = new System.Drawing.Point(75, 3);
+            this.txtbxDesc.Name = "txtbxDesc";
+            this.txtbxDesc.ReadOnly = true;
+            this.txtbxDesc.Size = new System.Drawing.Size(430, 20);
+            this.txtbxDesc.TabIndex = 5;
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.txtid);
             this.panel2.Controls.Add(this.txtNombreCliente);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.panel7);
@@ -331,6 +356,36 @@ namespace _14mayproyecrep
             this.panel2.Size = new System.Drawing.Size(728, 67);
             this.panel2.TabIndex = 0;
             // 
+            // txtid
+            // 
+            this.txtid.Location = new System.Drawing.Point(476, 15);
+            this.txtid.Name = "txtid";
+            this.txtid.ReadOnly = true;
+            this.txtid.Size = new System.Drawing.Size(29, 20);
+            this.txtid.TabIndex = 6;
+            // 
+            // txtNombreCliente
+            // 
+            this.txtNombreCliente.Location = new System.Drawing.Point(107, 41);
+            this.txtNombreCliente.Name = "txtNombreCliente";
+            this.txtNombreCliente.ReadOnly = true;
+            this.txtNombreCliente.Size = new System.Drawing.Size(120, 20);
+            this.txtNombreCliente.TabIndex = 1;
+            // 
+            // button2
+            // 
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Image = global::_14mayproyecrep.Properties.Resources.lupa16;
+            this.button2.Location = new System.Drawing.Point(233, 41);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(19, 20);
+            this.button2.TabIndex = 5;
+            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // panel7
             // 
             this.panel7.Controls.Add(this.button1);
@@ -340,6 +395,20 @@ namespace _14mayproyecrep
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(185, 37);
             this.panel7.TabIndex = 4;
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = global::_14mayproyecrep.Properties.Resources.actualizar_24;
+            this.button1.Location = new System.Drawing.Point(158, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(24, 26);
+            this.button1.TabIndex = 7;
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label7
             // 
@@ -351,6 +420,18 @@ namespace _14mayproyecrep
             this.label7.Size = new System.Drawing.Size(153, 29);
             this.label7.TabIndex = 3;
             this.label7.Text = "Facturación";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox1.Image = global::_14mayproyecrep.Properties.Resources.Factura64;
+            this.pictureBox1.Location = new System.Drawing.Point(15, 15);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(37, 37);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -367,68 +448,6 @@ namespace _14mayproyecrep
             this.txtBuscarCliente.Name = "txtBuscarCliente";
             this.txtBuscarCliente.Size = new System.Drawing.Size(167, 20);
             this.txtBuscarCliente.TabIndex = 0;
-            // 
-            // txtbxDesc
-            // 
-            this.txtbxDesc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtbxDesc.Location = new System.Drawing.Point(75, 3);
-            this.txtbxDesc.Name = "txtbxDesc";
-            this.txtbxDesc.ReadOnly = true;
-            this.txtbxDesc.Size = new System.Drawing.Size(430, 20);
-            this.txtbxDesc.TabIndex = 5;
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = global::_14mayproyecrep.Properties.Resources.actualizar_24;
-            this.button1.Location = new System.Drawing.Point(158, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(24, 26);
-            this.button1.TabIndex = 7;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // btnBuscarCodigo
-            // 
-            this.btnBuscarCodigo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnBuscarCodigo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscarCodigo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnBuscarCodigo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarCodigo.Image = global::_14mayproyecrep.Properties.Resources.lupa16;
-            this.btnBuscarCodigo.Location = new System.Drawing.Point(692, 3);
-            this.btnBuscarCodigo.Name = "btnBuscarCodigo";
-            this.btnBuscarCodigo.Size = new System.Drawing.Size(33, 20);
-            this.btnBuscarCodigo.TabIndex = 6;
-            this.btnBuscarCodigo.UseVisualStyleBackColor = false;
-            this.btnBuscarCodigo.Click += new System.EventHandler(this.btnBuscarCodigo_Click);
-            // 
-            // button2
-            // 
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Image = global::_14mayproyecrep.Properties.Resources.lupa16;
-            this.button2.Location = new System.Drawing.Point(233, 41);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(19, 20);
-            this.button2.TabIndex = 5;
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox1.Image = global::_14mayproyecrep.Properties.Resources.Factura64;
-            this.pictureBox1.Location = new System.Drawing.Point(15, 15);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(37, 37);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
             // 
             // FrmFacturacion
             // 
@@ -479,7 +498,7 @@ namespace _14mayproyecrep
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listafac;
         private System.Windows.Forms.ColumnHeader Codigo;
         private System.Windows.Forms.ColumnHeader Nombre;
         private System.Windows.Forms.ColumnHeader Cantidad;
@@ -493,5 +512,7 @@ namespace _14mayproyecrep
         private System.Windows.Forms.Button btnBuscarCodigo;
         private System.Windows.Forms.TextBox txtbxDesc;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ColumnHeader id;
+        private System.Windows.Forms.TextBox txtid;
     }
 }

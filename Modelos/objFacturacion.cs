@@ -8,7 +8,8 @@ namespace Modelos
 {
     public class objFacturacion : objBase
     {
-        public int IdCliente { get; set; }
+
+        public int Cedula { get; set; }
         public int NumFactura { get; set; }
         public int Total { get; set; }
         public DateTime Fecha { get; set; }

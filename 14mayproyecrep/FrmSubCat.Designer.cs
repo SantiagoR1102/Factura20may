@@ -54,7 +54,7 @@ namespace _14mayproyecrep
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(823, 491);
+            this.panel1.Size = new System.Drawing.Size(815, 496);
             this.panel1.TabIndex = 0;
             // 
             // listViSubc
@@ -74,7 +74,7 @@ namespace _14mayproyecrep
             this.listViSubc.MultiSelect = false;
             this.listViSubc.Name = "listViSubc";
             this.listViSubc.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.listViSubc.Size = new System.Drawing.Size(823, 417);
+            this.listViSubc.Size = new System.Drawing.Size(815, 422);
             this.listViSubc.TabIndex = 0;
             this.listViSubc.UseCompatibleStateImageBehavior = false;
             this.listViSubc.View = System.Windows.Forms.View.Details;
@@ -110,7 +110,7 @@ namespace _14mayproyecrep
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(10);
-            this.panel2.Size = new System.Drawing.Size(823, 74);
+            this.panel2.Size = new System.Drawing.Size(815, 74);
             this.panel2.TabIndex = 0;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -119,7 +119,7 @@ namespace _14mayproyecrep
             this.panel3.Controls.Add(this.newSubcat);
             this.panel3.Controls.Add(this.Refrescar);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(667, 10);
+            this.panel3.Location = new System.Drawing.Point(659, 10);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(146, 54);
             this.panel3.TabIndex = 2;
@@ -180,7 +180,7 @@ namespace _14mayproyecrep
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(823, 491);
+            this.ClientSize = new System.Drawing.Size(815, 496);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;

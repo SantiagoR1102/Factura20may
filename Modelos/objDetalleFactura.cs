@@ -8,11 +8,12 @@ namespace Modelos
 {
     public class objDetalleFactura:objBase
     {
-        public int Id { get; set; }
-        public int Precio { get; set; }
-        public int SubTotal { get; set; }
-        public int idFactura { get; set; }
+        public int CodPro { get; set; }
         public int Cantidad { get; set; }
-        public int IdProducto { get; set; }
+        public int Precio { get; set; }
+        public int Total { get; set; }
+        //public int SubTotal { get; set; }
+        //public int idFactura { get; set; }
+
     }
 }
