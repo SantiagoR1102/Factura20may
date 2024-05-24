@@ -1,8 +1,6 @@
-﻿using System;
-using Modelos;
-
+﻿using Modelos;
+using System;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 
 namespace _14mayproyecrep
 {
@@ -13,7 +11,7 @@ namespace _14mayproyecrep
 
         //private List<objFacturacion> ListaFactura;
         private ConexionBD.DBFacturacion Facturacion;
-        
+
         public FrmFacturacion(objFacturacion modelo)
         {
             InitializeComponent();
@@ -21,46 +19,9 @@ namespace _14mayproyecrep
 
         }
 
-        private void FrmFacturacion_Load(object sender, EventArgs e)
-        {
-
-        }
 
 
-
-        private void txtCedulaCliente_TextChanged(object sender, EventArgs e)
-        {
-            string cedula = txtNombreCliente.Text.Trim();
-
-            if (string.IsNullOrWhiteSpace(cedula))
-            {
-                LimpiarCampo();
-                return;
-            }
-
-            try
-            {
-                string nombre = Facturacion.BuscarNombrePorCedula(cedula);
-                if (nombre != null)
-                {
-                    txtNombreCliente.Text = nombre;
-                }
-                else
-                {
-                    LimpiarCampo();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al buscar el nombre del cliente: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void LimpiarCampo()
-        {
-            txtNombreCliente.Text = string.Empty;
-        }
-
+        //Buscar Cedula de la persona 
         private void button2_Click(object sender, EventArgs e)
         {
             string cedula = txtBuscarCliente.Text.Trim();
@@ -89,11 +50,42 @@ namespace _14mayproyecrep
                 MessageBox.Show("Error al buscar el nombre del cliente: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
+
+
+
+
+        //Bsucar Coditgo de producto
+        private void btnBuscarCodigo_Click(object sender, EventArgs e)
+        {
+
+            string codigo = txtbxCodigo.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(codigo))
+            {
+                MessageBox.Show("Por favor, ingrese un código.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                int? precio = Facturacion.BuscarPrecioPorCodigo(codigo);
+                if (precio.HasValue)
+                {
+                    txtBxprecio.Text = precio.Value.ToString();
+                }
+                else
+                {
+                    MessageBox.Show($"No se encontró ningún producto con el código {codigo}.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtBxprecio.Text = string.Empty;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al buscar el código: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
     }
 }
-
-    /*public class objCliente
-    {
-        public string Nombre { get; set; }
-    }*/
-

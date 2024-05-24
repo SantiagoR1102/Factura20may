@@ -54,6 +54,7 @@ namespace _14mayproyecrep
             this.txtBxprecio = new System.Windows.Forms.TextBox();
             this.AggFac = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnBuscarCodigo = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
@@ -315,6 +316,7 @@ namespace _14mayproyecrep
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnBuscarCodigo);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.panel7);
             this.panel2.Controls.Add(this.pictureBox1);
@@ -326,6 +328,19 @@ namespace _14mayproyecrep
             this.panel2.Padding = new System.Windows.Forms.Padding(15);
             this.panel2.Size = new System.Drawing.Size(728, 67);
             this.panel2.TabIndex = 0;
+            // 
+            // btnBuscarCodigo
+            // 
+            this.btnBuscarCodigo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBuscarCodigo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscarCodigo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarCodigo.Image = global::_14mayproyecrep.Properties.Resources.lupaeh32;
+            this.btnBuscarCodigo.Location = new System.Drawing.Point(470, 19);
+            this.btnBuscarCodigo.Name = "btnBuscarCodigo";
+            this.btnBuscarCodigo.Size = new System.Drawing.Size(35, 30);
+            this.btnBuscarCodigo.TabIndex = 6;
+            this.btnBuscarCodigo.UseVisualStyleBackColor = false;
+            this.btnBuscarCodigo.Click += new System.EventHandler(this.btnBuscarCodigo_Click);
             // 
             // button2
             // 
@@ -396,7 +411,6 @@ namespace _14mayproyecrep
             this.Controls.Add(this.panel1);
             this.Name = "FrmFacturacion";
             this.Text = " ";
-            this.Load += new System.EventHandler(this.FrmFacturacion_Load);
             this.panel1.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -449,5 +463,6 @@ namespace _14mayproyecrep
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnBuscarCodigo;
     }
 }
