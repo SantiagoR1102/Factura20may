@@ -1,6 +1,7 @@
 ﻿using Modelos;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace _14mayproyecrep
@@ -12,12 +13,15 @@ namespace _14mayproyecrep
 
         //private List<objFacturacion> ListaFactura;
         private ConexionBD.DBFacturacion Facturacion;
+        private ConexionBD.DBProductos DBProductos;
+        private List<objProductos> ListaProductos;
 
         public FrmFacturacion(objFacturacion modelo)
         {
             InitializeComponent();
             Facturacion = new ConexionBD.DBFacturacion();
-
+            DBProductos = new ConexionBD.DBProductos();
+            ListaProductos = new List<objProductos>();
         }
 
 
@@ -72,11 +76,13 @@ namespace _14mayproyecrep
 
             try
             {
-                var resultado = Facturacion.BuscarProductoPorCodigo(codigo);
+                var resultado = DBProductos.Buscar(codigo);
                 if (resultado.Nombre != null)
                 {
                     txtbxDesc.Text = resultado.Nombre;
-                    txtBxprecio.Text = resultado.Precio.HasValue ? resultado.Precio.Value.ToString() : string.Empty;
+                    txtBxprecio.Text = resultado.Precio.ToString();
+                    txtBxCantidad.Focus();
+
                 }
                 else
                 {
@@ -119,31 +125,6 @@ namespace _14mayproyecrep
 
 
 
-        private void listafac_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            try
-            {
-                int id = 0;
-                id = Convert.ToInt32(listafac.SelectedItems[0].SubItems[0].Text);
-                if (id > 0)
-                {
-                    objSubCategoria modelo = new objSubCategoria()
-                    {
-                        Nombre = listafac.SelectedItems[0].SubItems[1].Text,
-                        //IdCategoria = Convert.ToInt32(listafac.SelectedItems[0].SubItems[3].Text)
-                    };
-                    Form formulario = new FrmSubCatNew(modelo);
-                    formulario.ShowDialog();
-                }
-
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al seleccionar el cliente: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
 
 
 
@@ -154,40 +135,73 @@ namespace _14mayproyecrep
 
             try
             {
-                int id = string.IsNullOrEmpty(txtid.Text) ? 0 : Convert.ToInt32(txtid.Text);
-                int CodigoPro = string.IsNullOrEmpty(txtbxCodigo.Text) ? 0 : Convert.ToInt32(txtbxCodigo.Text);
-                int Cantidad = string.IsNullOrEmpty(txtBxCantidad.Text) ? 0 : Convert.ToInt32(txtBxCantidad.Text);
-                int Precio = string.IsNullOrEmpty(txtBxprecio.Text) ? 0 : Convert.ToInt32(txtBxprecio.Text);
+                //int id = string.IsNullOrEmpty(txtid.Text) ? 0 : Convert.ToInt32(txtid.Text);
+                //int CodigoPro = string.IsNullOrEmpty(txtbxCodigo.Text) ? 0 : Convert.ToInt32(txtbxCodigo.Text);
+                //int Cantidad = string.IsNullOrEmpty(txtBxCantidad.Text) ? 0 : Convert.ToInt32(txtBxCantidad.Text);
+                //int Precio = string.IsNullOrEmpty(txtBxprecio.Text) ? 0 : Convert.ToInt32(txtBxprecio.Text);
 
-                int Total = Cantidad * Precio;
-                bool rs = Facturacion.Guardar(id, CodigoPro, txtbxDesc.Text, Cantidad, Precio, Total);
+                //int Total = Cantidad * Precio;
 
-                if (string.IsNullOrWhiteSpace(txtbxCodigo.Text))
+                //if (string.IsNullOrWhiteSpace(txtbxCodigo.Text))
+                //{
+                //    MessageBox.Show("El campo Código no puede estar vacío");
+                //    return;
+                //}
+
+                //if (string.IsNullOrWhiteSpace(txtBxCantidad.Text))
+                //{
+                //    MessageBox.Show("El campo Cantidad no puede estar vacío");
+                //    return;
+                //}
+
+                //bool rs = Facturacion.Guardar(id, CodigoPro, txtbxDesc.Text, Cantidad, Precio, Total);
+
+                //if (rs)
+                //{
+                //    MessageBox.Show("Datos guardados con éxito", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //}
+
+                //// Clear the fields after saving
+                //txtbxCodigo.Text = "";
+                //txtBuscarCliente.Text = "";
+                //txtNombreCliente.Text = "";
+                //txtBxCantidad.Text = "";
+                //txtBxprecio.Text = "";
+                //txtbxDesc.Text = "";
+
+                if(ListaProductos.Count > 0)
                 {
-                    MessageBox.Show("El campo Código no puede estar vacío");
-                    return;
-                }
-                if (string.IsNullOrWhiteSpace(txtBuscarCliente.Text))
-                {
-                    MessageBox.Show("El campo Cédula no puede estar vacío");
-                    return;
-                }
-                if (string.IsNullOrWhiteSpace(txtBxCantidad.Text))
-                {
-                    MessageBox.Show("El campo Cantidad no puede estar vacío");
-                    return;
+                   bool r = ListaProductos.Where(x => x.CodPro == Convert.ToInt32(txtbxCodigo.Text)).Any();
+                    if (r)
+                    {
+                        MessageBox.Show("Producto ya existe", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
                 }
 
-                if (rs)
+                ListaProductos.Add(new objProductos() { 
+                    CodPro = Convert.ToInt32(txtbxCodigo.Text),
+                    Nombre =  txtbxDesc.Text,
+                    Precio = Convert.ToInt32(txtBxprecio.Text),
+                    Total = Convert.ToInt32(txtBxprecio.Text) * Convert.ToInt32(txtBxCantidad.Text)
+                });
+
+
+                listafac.Items.Clear();
+
+                
+                foreach (var pedidos in ListaProductos)
                 {
-                    MessageBox.Show("Datos guardados con éxito", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ListViewItem item = new ListViewItem(pedidos.CodPro.ToString());
+                    item.SubItems.Add(pedidos.Nombre);
+                    item.SubItems.Add(txtBxCantidad.Text);
+                    item.SubItems.Add(pedidos.Precio.ToString("#.##"));
+                    item.SubItems.Add(pedidos.Total.ToString("#.##"));
+                    listafac.Items.Add(item);
+
                 }
-                txtbxCodigo.Text = "";
-                txtBuscarCliente.Text = "";
-                txtNombreCliente.Text = "";
-                txtBxCantidad.Text = "";
-                txtBxprecio.Text = "";
-                txtbxDesc.Text = "";
+
+
             }
             catch (Exception ex)
             {
@@ -195,54 +209,50 @@ namespace _14mayproyecrep
             }
 
 
-
-
-            /* int id = string.IsNullOrEmpty(txtid.Text) ? 0 : Convert.ToInt32(txtid.Text);
-             int CodigoPro = string.IsNullOrEmpty(txtbxCodigo.Text) ? 0 : Convert.ToInt32(txtbxCodigo.Text);
-             int Cantidad = string.IsNullOrEmpty(txtBxCantidad.Text) ? 0 : Convert.ToInt32(txtBxCantidad.Text);
-             int Precio = string.IsNullOrEmpty(txtBxprecio.Text) ? 0 : Convert.ToInt32(txtBxprecio.Text);
-
-
-             bool rs = Facturacion.Guardar( id,  CodigoPro,  txtbxDesc.Text,  Cantidad,  Precio);
-
-
-             if (string.IsNullOrWhiteSpace(txtbxCodigo.Text))
-             {
-                 MessageBox.Show("El campo Codigo no puede estar vacio");
-                 return;
-             }
-             if (string.IsNullOrWhiteSpace(txtBuscarCliente.Text))
-             {
-                 MessageBox.Show("El campo Cedula no puede estar vacio");
-                 return;
-             }
-             if (string.IsNullOrWhiteSpace(txtBxCantidad.Text))
-             {
-                 MessageBox.Show("El campo Cantidad no puede estar vacio");
-                 return;
-             }
-
-
-             if (rs)
-             {
-                 MessageBox.Show("Datos guardados con éxito", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-             }
-             txtbxCodigo.Text = "";
-             txtBuscarCliente.Text = "";
-             txtbxCodigo.Text = "";
-             txtBxCantidad.Text = "";
-             txtbxDesc.Text = "";
-
-
-         }
-         catch (Exception ex)
-         {
-             MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-         }*/
         }
-    }
 
+        private void FrmFacturacion_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listafac_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            try
+            {
+                if (listafac.SelectedItems.Count > 0)
+                {
+                    var selectedItem = listafac.SelectedItems[0];
+                    int id = Convert.ToInt32(selectedItem.SubItems[0].Text);
+
+
+                    objDetalleFactura modelo = new objDetalleFactura()
+                    {
+                        
+                        Id = id,
+                        CodPro = Convert.ToInt32(selectedItem.SubItems[1].Text),
+                        Nombre = selectedItem.SubItems[2].Text,
+                        Cantidad = Convert.ToInt32(selectedItem.SubItems[3].Text),
+                        Precio = Convert.ToInt32(selectedItem.SubItems[4].Text),
+                        Total = Convert.ToInt32(selectedItem.SubItems[5].Text),
+
+
+
+                    };
+                    Form formulario = new FrmFacturacion(null);
+                    formulario.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al seleccionar el producto: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+    }
 }
+
+
 
 
 

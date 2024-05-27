@@ -32,7 +32,6 @@ namespace _14mayproyecrep
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.listafac = new System.Windows.Forms.ListView();
-            this.id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Codigo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Nombre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Cantidad = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -102,7 +101,6 @@ namespace _14mayproyecrep
             // 
             this.listafac.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listafac.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.id,
             this.Codigo,
             this.Nombre,
             this.Cantidad,
@@ -118,11 +116,7 @@ namespace _14mayproyecrep
             this.listafac.TabIndex = 1;
             this.listafac.UseCompatibleStateImageBehavior = false;
             this.listafac.View = System.Windows.Forms.View.Details;
-            // 
-            // id
-            // 
-            this.id.Text = "id";
-            this.id.Width = 20;
+            this.listafac.SelectedIndexChanged += new System.EventHandler(this.listafac_SelectedIndexChanged_1);
             // 
             // Codigo
             // 
@@ -272,12 +266,13 @@ namespace _14mayproyecrep
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 5;
+            this.tableLayoutPanel1.ColumnCount = 6;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 23F));
             this.tableLayoutPanel1.Controls.Add(this.txtbxCodigo, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtBxCantidad, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtBxprecio, 3, 0);
@@ -289,6 +284,9 @@ namespace _14mayproyecrep
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(728, 26);
             this.tableLayoutPanel1.TabIndex = 9;
             // 
@@ -297,24 +295,24 @@ namespace _14mayproyecrep
             this.txtbxCodigo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtbxCodigo.Location = new System.Drawing.Point(3, 3);
             this.txtbxCodigo.Name = "txtbxCodigo";
-            this.txtbxCodigo.Size = new System.Drawing.Size(66, 20);
+            this.txtbxCodigo.Size = new System.Drawing.Size(64, 20);
             this.txtbxCodigo.TabIndex = 0;
             // 
             // txtBxCantidad
             // 
             this.txtBxCantidad.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtBxCantidad.Location = new System.Drawing.Point(511, 3);
+            this.txtBxCantidad.Location = new System.Drawing.Point(496, 3);
             this.txtBxCantidad.Name = "txtBxCantidad";
-            this.txtBxCantidad.Size = new System.Drawing.Size(66, 20);
+            this.txtBxCantidad.Size = new System.Drawing.Size(64, 20);
             this.txtBxCantidad.TabIndex = 2;
             // 
             // txtBxprecio
             // 
             this.txtBxprecio.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtBxprecio.Location = new System.Drawing.Point(583, 3);
+            this.txtBxprecio.Location = new System.Drawing.Point(566, 3);
             this.txtBxprecio.Name = "txtBxprecio";
             this.txtBxprecio.ReadOnly = true;
-            this.txtBxprecio.Size = new System.Drawing.Size(103, 20);
+            this.txtBxprecio.Size = new System.Drawing.Size(99, 20);
             this.txtBxprecio.TabIndex = 3;
             // 
             // AggFac
@@ -323,9 +321,9 @@ namespace _14mayproyecrep
             this.AggFac.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AggFac.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.AggFac.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.AggFac.Location = new System.Drawing.Point(692, 3);
+            this.AggFac.Location = new System.Drawing.Point(671, 3);
             this.AggFac.Name = "AggFac";
-            this.AggFac.Size = new System.Drawing.Size(33, 20);
+            this.AggFac.Size = new System.Drawing.Size(29, 20);
             this.AggFac.TabIndex = 4;
             this.AggFac.Text = "+";
             this.AggFac.UseVisualStyleBackColor = false;
@@ -334,10 +332,10 @@ namespace _14mayproyecrep
             // txtbxDesc
             // 
             this.txtbxDesc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtbxDesc.Location = new System.Drawing.Point(75, 3);
+            this.txtbxDesc.Location = new System.Drawing.Point(73, 3);
             this.txtbxDesc.Name = "txtbxDesc";
             this.txtbxDesc.ReadOnly = true;
-            this.txtbxDesc.Size = new System.Drawing.Size(430, 20);
+            this.txtbxDesc.Size = new System.Drawing.Size(417, 20);
             this.txtbxDesc.TabIndex = 5;
             // 
             // panel2
@@ -457,6 +455,7 @@ namespace _14mayproyecrep
             this.Controls.Add(this.panel1);
             this.Name = "FrmFacturacion";
             this.Text = " ";
+            this.Load += new System.EventHandler(this.FrmFacturacion_Load);
             this.panel1.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -509,10 +508,9 @@ namespace _14mayproyecrep
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button btnBuscarCodigo;
         private System.Windows.Forms.TextBox txtbxDesc;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ColumnHeader id;
         private System.Windows.Forms.TextBox txtid;
+        private System.Windows.Forms.Button btnBuscarCodigo;
     }
 }

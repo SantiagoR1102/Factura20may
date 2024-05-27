@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Modelos;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace ConexionBD
@@ -80,5 +82,41 @@ namespace ConexionBD
             }
             return r;
         }
+
+
+        /*BUSCAR*/
+        public objProductos Buscar(string codigo)
+        {
+            objProductos rs = null;
+
+            try
+            {
+                string query = "SELECT A.CodigoPro, A.Nombre, A.Precio FROM Productos A WHERE A.CodigoPro = " + codigo;
+
+                sqlCommand = COMANDO(query, null);
+                dataTable = DATATABLE(sqlCommand);
+                if (dataTable != null || dataTable.Rows.Count > 0)
+                {
+                  
+                    rs = new objProductos()
+                    {
+                        CodPro = dataTable.Rows[0].Field<int>("CodigoPro"),
+                        Nombre = dataTable.Rows[0].Field<string>("Nombre"),
+                        Precio = dataTable.Rows[0].Field<int>("Precio")
+                    };
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                CerrarConexion();
+            }
+            return rs;
+        }
+
+
     }
 }

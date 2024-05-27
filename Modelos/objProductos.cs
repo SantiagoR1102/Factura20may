@@ -8,7 +8,7 @@
 
         public string categoria { get; set; }
         public string SubCategoria { get; set; }
-
+        public int Total { get; set; }
         //public objCategoria categoria { get; set; } = new objCategoria();
         //    public objSubCategoria SubCategoria { get; set; } = new objSubCategoria();
 

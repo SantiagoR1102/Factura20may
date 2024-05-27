@@ -46,45 +46,6 @@ namespace ConexionBD
 
 
 
-/*
-
-        private string connectionString;
-        public DBCliente(string connectionString)
-        {
-            this.connectionString = connectionString;
-        }
-        public DataRow ObtenerClientePorId(int id)
-        {
-            DataRow cliente = null;
-            string query = "SELECT Nombre, Apellido, Correo, Telefono, Direccion FROM Cliente WHERE Id = @Id";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.Add(new SqlParameter("@Id", id));
-                    connection.Open();
-
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
-                    {
-                        DataTable dt = new DataTable();
-                        adapter.Fill(dt);
-
-                        if (dt.Rows.Count > 0)
-                        {
-                            cliente = dt.Rows[0];
-                        }
-                    }
-                }
-            }
-
-            return cliente;
-        }*/
-
-
-
-
-
 
         /*LISTAR-----------------------------------------------------*/
         public List<Modelos.objCliente> ListarCli()

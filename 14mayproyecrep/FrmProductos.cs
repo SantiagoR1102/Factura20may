@@ -61,9 +61,10 @@ namespace _14mayproyecrep
                         Id = id,
                         Nombre = selectedItem.SubItems[1].Text,
                         Precio = Convert.ToInt32(selectedItem.SubItems[2].Text),
-
                         idSubCategoria = Convert.ToInt32(selectedItem.SubItems[3].Text),
                         CodPro = Convert.ToInt32(selectedItem.SubItems[4].Text),
+
+
 
                     };
                     Form formulario = new FrmProductosNew(modelo);

@@ -8,42 +8,48 @@ namespace ConexionBD
     {
         //Guardar Datos de la list
 
+
         public bool Guardar(int id, int CodigoPro, string Nombre, int Cantidad, int Precio, int Total)
         {
-            string Query = id > 0 ? "UPDATE Cliente SET CodigoPro=@CodigoPro, Nombre=@Nombre, Cantidad=@Cantidad, Precio=@Precio, Total=@Total WHERE Id=@Id" :
-                                    "INSERT INTO Cliente (CodigoPro, Nombre, Cantidad, Precio, Total) VALUES (@CodigoPro, @Nombre, @Cantidad, @Precio, @Total)";
+            string query = id > 0 ?
+                "UPDATE Factura SET CodigoPro=@CodigoPro, Nombre=@Nombre, Cantidad=@Cantidad, Precio=@Precio, Total=@Total WHERE Id=@Id" :
+                "INSERT INTO Factura (CodigoPro, Nombre, Cantidad, Precio, Total) VALUES (@CodigoPro, @Nombre, @Cantidad, @Precio, @Total)";
+
             bool rs = false;
+
             try
             {
-                List<SqlParameter> parameters = new List<SqlParameter>();
-                parameters.Add(new SqlParameter("@CodigoPro", CodigoPro));
-                parameters.Add(new SqlParameter("@Nombre", Nombre));
-                parameters.Add(new SqlParameter("@Cantidad", Cantidad));
-                parameters.Add(new SqlParameter("@Precio", Precio));
-                parameters.Add(new SqlParameter("@Total", Total));
+                List<SqlParameter> parameters = new List<SqlParameter>
+        {
+                 new SqlParameter("@CodigoPro", CodigoPro),
+                 new SqlParameter("@Nombre", Nombre),
+                 new SqlParameter("@Cantidad", Cantidad),
+                 new SqlParameter("@Precio", Precio),
+                 new SqlParameter("@Total", Total)
+        };
 
                 if (id > 0)
                 {
-                    parameters.Add(new SqlParameter("@Id", id));
+                    new SqlParameter("@Id", Total);
+
+                    //parameters.Add(new SqlParameter("@Id", id));
                 }
 
-
-
-                sqlCommand = COMANDO(Query, parameters);
+                sqlCommand = COMANDO(query, parameters);
                 rs = Convert.ToBoolean(EJECUTAR_COMANDO(sqlCommand));
+
             }
             catch (Exception e)
             {
-                throw new Exception(e.Message);
+                throw new Exception("Error al guardar la factura: " + e.Message);
             }
             finally
             {
                 CerrarConexion();
             }
+
             return rs;
         }
-
-
 
 
 
@@ -84,7 +90,7 @@ namespace ConexionBD
 
         //Busca el codigo del producto y trae el precio
 
-        
+
         public (string Nombre, int? Precio) BuscarProductoPorCodigo(string codigoPro)
         {
             string nombre = null;
@@ -102,8 +108,8 @@ namespace ConexionBD
 
                 if (reader.Read())
                 {
-                    nombre = reader.GetString(0);
-                    precio = reader.GetInt32(1);
+                    nombre = reader.GetString(3);
+                    precio = reader.GetInt32(4);
                 }
 
                 reader.Close();
@@ -121,7 +127,7 @@ namespace ConexionBD
 
 
 
-        //listar
+        //listar----------------------------------------------------------------------------------------------------------
 
         public List<Modelos.objDetalleFactura> Listardetalelfac()
         {
@@ -130,16 +136,21 @@ namespace ConexionBD
             try
             {
 
-                dataReader = DATAREADER("SELECT CodigoPro, Nombre, Cantidad, Precio, Total FROM Productos", null);
+                string query = @"SELECT f.id, f.CodigoPro, f.Nombre AS Producto, f.Cantidad, f.Precio, f.Total 
+                                    FROM Factura f INNER JOIN Productos p ON f.CodigoPro = p.CodigoPro;";
+
+                SqlDataReader dataReader = DATAREADER(query, null);
                 while (dataReader.Read())
+
                 {
                     r.Add(new Modelos.objDetalleFactura()
                     {
-                        CodPro = dataReader.GetInt32(0),
-                        Nombre = dataReader.GetString(1),
-                        Cantidad = dataReader.GetInt32(2),
-                        Precio = dataReader.GetInt32(3),
-                        Total = dataReader.GetInt32(4)
+                        Id = dataReader.GetInt32(0),
+                        CodPro = dataReader.GetInt32(1),
+                        Nombre = dataReader.GetString(2),
+                        Cantidad = dataReader.GetInt32(3),
+                        Precio = dataReader.GetInt32(4),
+                        Total = dataReader.GetInt32(5)
 
                     });
                 }
