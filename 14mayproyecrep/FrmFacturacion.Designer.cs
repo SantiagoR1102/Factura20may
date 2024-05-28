@@ -38,8 +38,11 @@ namespace _14mayproyecrep
             this.Precio = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Total = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.Sumartotal = new System.Windows.Forms.Button();
+            this.txtbxpagot = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -55,23 +58,26 @@ namespace _14mayproyecrep
             this.AggFac = new System.Windows.Forms.Button();
             this.txtbxDesc = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.txtid = new System.Windows.Forms.TextBox();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.masCiente = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtNombreCliente = new System.Windows.Forms.TextBox();
+            this.txtBuscarCliente = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.panel7 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtBuscarCliente = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -85,16 +91,16 @@ namespace _14mayproyecrep
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(728, 626);
+            this.panel1.Size = new System.Drawing.Size(754, 630);
             this.panel1.TabIndex = 0;
             // 
             // panel6
             // 
             this.panel6.Controls.Add(this.listafac);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 116);
+            this.panel6.Location = new System.Drawing.Point(0, 151);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(728, 449);
+            this.panel6.Size = new System.Drawing.Size(754, 374);
             this.panel6.TabIndex = 4;
             // 
             // listafac
@@ -107,12 +113,13 @@ namespace _14mayproyecrep
             this.Precio,
             this.Total});
             this.listafac.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listafac.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listafac.GridLines = true;
             this.listafac.HideSelection = false;
             this.listafac.Location = new System.Drawing.Point(0, 0);
             this.listafac.MultiSelect = false;
             this.listafac.Name = "listafac";
-            this.listafac.Size = new System.Drawing.Size(728, 449);
+            this.listafac.Size = new System.Drawing.Size(754, 374);
             this.listafac.TabIndex = 1;
             this.listafac.UseCompatibleStateImageBehavior = false;
             this.listafac.View = System.Windows.Forms.View.Details;
@@ -121,6 +128,7 @@ namespace _14mayproyecrep
             // Codigo
             // 
             this.Codigo.Text = "Codigo";
+            this.Codigo.Width = 70;
             // 
             // Nombre
             // 
@@ -130,43 +138,85 @@ namespace _14mayproyecrep
             // Cantidad
             // 
             this.Cantidad.Text = "Cantidad";
+            this.Cantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Cantidad.Width = 150;
             // 
             // Precio
             // 
             this.Precio.Text = "Precio";
+            this.Precio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Precio.Width = 150;
             // 
             // Total
             // 
+            this.Total.Tag = "c";
             this.Total.Text = "Total";
+            this.Total.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Total.Width = 160;
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.panel8);
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 565);
+            this.panel4.Location = new System.Drawing.Point(0, 525);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(728, 61);
+            this.panel4.Size = new System.Drawing.Size(754, 105);
             this.panel4.TabIndex = 3;
+            // 
+            // panel8
+            // 
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel8.Location = new System.Drawing.Point(465, 0);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(89, 105);
+            this.panel8.TabIndex = 4;
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.textBox6);
+            this.panel5.Controls.Add(this.pictureBox2);
+            this.panel5.Controls.Add(this.Sumartotal);
+            this.panel5.Controls.Add(this.txtbxpagot);
             this.panel5.Controls.Add(this.label6);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel5.Location = new System.Drawing.Point(528, 0);
+            this.panel5.Location = new System.Drawing.Point(554, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(200, 61);
+            this.panel5.Size = new System.Drawing.Size(200, 105);
             this.panel5.TabIndex = 2;
             // 
-            // textBox6
+            // pictureBox2
             // 
-            this.textBox6.Location = new System.Drawing.Point(32, 29);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(156, 20);
-            this.textBox6.TabIndex = 0;
+            this.pictureBox2.Image = global::_14mayproyecrep.Properties.Resources.total634;
+            this.pictureBox2.Location = new System.Drawing.Point(22, 67);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(36, 35);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 5;
+            this.pictureBox2.TabStop = false;
+            // 
+            // Sumartotal
+            // 
+            this.Sumartotal.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Sumartotal.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Sumartotal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Sumartotal.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Sumartotal.Location = new System.Drawing.Point(80, 67);
+            this.Sumartotal.Name = "Sumartotal";
+            this.Sumartotal.Size = new System.Drawing.Size(78, 29);
+            this.Sumartotal.TabIndex = 3;
+            this.Sumartotal.Text = "Agregar";
+            this.Sumartotal.UseVisualStyleBackColor = false;
+            this.Sumartotal.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // txtbxpagot
+            // 
+            this.txtbxpagot.Location = new System.Drawing.Point(32, 29);
+            this.txtbxpagot.Name = "txtbxpagot";
+            this.txtbxpagot.ReadOnly = true;
+            this.txtbxpagot.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtbxpagot.Size = new System.Drawing.Size(156, 20);
+            this.txtbxpagot.TabIndex = 0;
+            this.txtbxpagot.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label6
             // 
@@ -183,9 +233,9 @@ namespace _14mayproyecrep
             this.panel3.Controls.Add(this.tableLayoutPanel3);
             this.panel3.Controls.Add(this.tableLayoutPanel1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 67);
+            this.panel3.Location = new System.Drawing.Point(0, 102);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(728, 49);
+            this.panel3.Size = new System.Drawing.Size(754, 49);
             this.panel3.TabIndex = 1;
             // 
             // tableLayoutPanel3
@@ -207,7 +257,7 @@ namespace _14mayproyecrep
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(728, 26);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(754, 26);
             this.tableLayoutPanel3.TabIndex = 11;
             // 
             // label2
@@ -216,7 +266,7 @@ namespace _14mayproyecrep
             this.label2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label2.Location = new System.Drawing.Point(3, 13);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 13);
+            this.label2.Size = new System.Drawing.Size(69, 13);
             this.label2.TabIndex = 5;
             this.label2.Text = "Codigo";
             // 
@@ -224,9 +274,9 @@ namespace _14mayproyecrep
             // 
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label3.Location = new System.Drawing.Point(75, 13);
+            this.label3.Location = new System.Drawing.Point(78, 13);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(430, 13);
+            this.label3.Size = new System.Drawing.Size(446, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Descripción";
             // 
@@ -234,9 +284,9 @@ namespace _14mayproyecrep
             // 
             this.label5.AutoSize = true;
             this.label5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label5.Location = new System.Drawing.Point(583, 13);
+            this.label5.Location = new System.Drawing.Point(605, 13);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(103, 13);
+            this.label5.Size = new System.Drawing.Size(107, 13);
             this.label5.TabIndex = 8;
             this.label5.Text = "Precio";
             // 
@@ -244,9 +294,9 @@ namespace _14mayproyecrep
             // 
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label4.Location = new System.Drawing.Point(511, 13);
+            this.label4.Location = new System.Drawing.Point(530, 13);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 13);
+            this.label4.Size = new System.Drawing.Size(69, 13);
             this.label4.TabIndex = 7;
             this.label4.Text = "Cantidad";
             // 
@@ -257,7 +307,7 @@ namespace _14mayproyecrep
             this.btnBuscarCodigo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnBuscarCodigo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarCodigo.Image = global::_14mayproyecrep.Properties.Resources.lupa16;
-            this.btnBuscarCodigo.Location = new System.Drawing.Point(692, 3);
+            this.btnBuscarCodigo.Location = new System.Drawing.Point(718, 3);
             this.btnBuscarCodigo.Name = "btnBuscarCodigo";
             this.btnBuscarCodigo.Size = new System.Drawing.Size(33, 20);
             this.btnBuscarCodigo.TabIndex = 6;
@@ -266,13 +316,12 @@ namespace _14mayproyecrep
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 6;
+            this.tableLayoutPanel1.ColumnCount = 5;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 23F));
             this.tableLayoutPanel1.Controls.Add(this.txtbxCodigo, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtBxCantidad, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtBxprecio, 3, 0);
@@ -287,7 +336,7 @@ namespace _14mayproyecrep
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(728, 26);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(754, 26);
             this.tableLayoutPanel1.TabIndex = 9;
             // 
             // txtbxCodigo
@@ -295,24 +344,24 @@ namespace _14mayproyecrep
             this.txtbxCodigo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtbxCodigo.Location = new System.Drawing.Point(3, 3);
             this.txtbxCodigo.Name = "txtbxCodigo";
-            this.txtbxCodigo.Size = new System.Drawing.Size(64, 20);
+            this.txtbxCodigo.Size = new System.Drawing.Size(69, 20);
             this.txtbxCodigo.TabIndex = 0;
             // 
             // txtBxCantidad
             // 
             this.txtBxCantidad.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtBxCantidad.Location = new System.Drawing.Point(496, 3);
+            this.txtBxCantidad.Location = new System.Drawing.Point(530, 3);
             this.txtBxCantidad.Name = "txtBxCantidad";
-            this.txtBxCantidad.Size = new System.Drawing.Size(64, 20);
+            this.txtBxCantidad.Size = new System.Drawing.Size(69, 20);
             this.txtBxCantidad.TabIndex = 2;
             // 
             // txtBxprecio
             // 
             this.txtBxprecio.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtBxprecio.Location = new System.Drawing.Point(566, 3);
+            this.txtBxprecio.Location = new System.Drawing.Point(605, 3);
             this.txtBxprecio.Name = "txtBxprecio";
             this.txtBxprecio.ReadOnly = true;
-            this.txtBxprecio.Size = new System.Drawing.Size(99, 20);
+            this.txtBxprecio.Size = new System.Drawing.Size(107, 20);
             this.txtBxprecio.TabIndex = 3;
             // 
             // AggFac
@@ -321,9 +370,9 @@ namespace _14mayproyecrep
             this.AggFac.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AggFac.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.AggFac.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.AggFac.Location = new System.Drawing.Point(671, 3);
+            this.AggFac.Location = new System.Drawing.Point(718, 3);
             this.AggFac.Name = "AggFac";
-            this.AggFac.Size = new System.Drawing.Size(29, 20);
+            this.AggFac.Size = new System.Drawing.Size(33, 20);
             this.AggFac.TabIndex = 4;
             this.AggFac.Text = "+";
             this.AggFac.UseVisualStyleBackColor = false;
@@ -332,43 +381,76 @@ namespace _14mayproyecrep
             // txtbxDesc
             // 
             this.txtbxDesc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtbxDesc.Location = new System.Drawing.Point(73, 3);
+            this.txtbxDesc.Location = new System.Drawing.Point(78, 3);
             this.txtbxDesc.Name = "txtbxDesc";
             this.txtbxDesc.ReadOnly = true;
-            this.txtbxDesc.Size = new System.Drawing.Size(417, 20);
+            this.txtbxDesc.Size = new System.Drawing.Size(446, 20);
             this.txtbxDesc.TabIndex = 5;
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.txtid);
-            this.panel2.Controls.Add(this.txtNombreCliente);
-            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.panel9);
+            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.panel7);
             this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.txtBuscarCliente);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(15);
-            this.panel2.Size = new System.Drawing.Size(728, 67);
+            this.panel2.Size = new System.Drawing.Size(754, 102);
             this.panel2.TabIndex = 0;
             // 
-            // txtid
+            // panel9
             // 
-            this.txtid.Location = new System.Drawing.Point(476, 15);
-            this.txtid.Name = "txtid";
-            this.txtid.ReadOnly = true;
-            this.txtid.Size = new System.Drawing.Size(29, 20);
-            this.txtid.TabIndex = 6;
+            this.panel9.Controls.Add(this.masCiente);
+            this.panel9.Controls.Add(this.label1);
+            this.panel9.Controls.Add(this.txtNombreCliente);
+            this.panel9.Controls.Add(this.txtBuscarCliente);
+            this.panel9.Controls.Add(this.button2);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel9.Location = new System.Drawing.Point(554, 15);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(185, 72);
+            this.panel9.TabIndex = 8;
+            // 
+            // masCiente
+            // 
+            this.masCiente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.masCiente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.masCiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.masCiente.Image = global::_14mayproyecrep.Properties.Resources.mas216;
+            this.masCiente.Location = new System.Drawing.Point(163, 17);
+            this.masCiente.Name = "masCiente";
+            this.masCiente.Size = new System.Drawing.Size(19, 20);
+            this.masCiente.TabIndex = 6;
+            this.masCiente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.masCiente.UseVisualStyleBackColor = false;
+            this.masCiente.Click += new System.EventHandler(this.masCiente_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(43, 1);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 14);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Cedula:";
             // 
             // txtNombreCliente
             // 
-            this.txtNombreCliente.Location = new System.Drawing.Point(107, 41);
+            this.txtNombreCliente.Location = new System.Drawing.Point(6, 44);
             this.txtNombreCliente.Name = "txtNombreCliente";
             this.txtNombreCliente.ReadOnly = true;
-            this.txtNombreCliente.Size = new System.Drawing.Size(120, 20);
+            this.txtNombreCliente.Size = new System.Drawing.Size(126, 20);
             this.txtNombreCliente.TabIndex = 1;
+            // 
+            // txtBuscarCliente
+            // 
+            this.txtBuscarCliente.Location = new System.Drawing.Point(6, 17);
+            this.txtBuscarCliente.Name = "txtBuscarCliente";
+            this.txtBuscarCliente.Size = new System.Drawing.Size(126, 20);
+            this.txtBuscarCliente.TabIndex = 0;
             // 
             // button2
             // 
@@ -376,23 +458,13 @@ namespace _14mayproyecrep
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Image = global::_14mayproyecrep.Properties.Resources.lupa16;
-            this.button2.Location = new System.Drawing.Point(233, 41);
+            this.button2.Location = new System.Drawing.Point(138, 17);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(19, 20);
             this.button2.TabIndex = 5;
             this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.button1);
-            this.panel7.Controls.Add(this.label7);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel7.Location = new System.Drawing.Point(528, 15);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(185, 37);
-            this.panel7.TabIndex = 4;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // button1
             // 
@@ -400,13 +472,21 @@ namespace _14mayproyecrep
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Image = global::_14mayproyecrep.Properties.Resources.actualizar_24;
-            this.button1.Location = new System.Drawing.Point(158, 3);
+            this.button1.Location = new System.Drawing.Point(21, 68);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(24, 26);
+            this.button1.Size = new System.Drawing.Size(10, 10);
             this.button1.TabIndex = 7;
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.label7);
+            this.panel7.Location = new System.Drawing.Point(60, 43);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(196, 36);
+            this.panel7.TabIndex = 4;
             // 
             // label7
             // 
@@ -415,59 +495,45 @@ namespace _14mayproyecrep
             this.label7.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(0, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(153, 29);
+            this.label7.Size = new System.Drawing.Size(190, 29);
             this.label7.TabIndex = 3;
-            this.label7.Text = "Facturación";
+            this.label7.Text = "FACTURACIÓN";
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.pictureBox1.Image = global::_14mayproyecrep.Properties.Resources.Factura64;
-            this.pictureBox1.Location = new System.Drawing.Point(15, 15);
+            this.pictureBox1.Location = new System.Drawing.Point(18, 41);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(37, 37);
+            this.pictureBox1.Size = new System.Drawing.Size(36, 38);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(58, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Cedula:";
-            // 
-            // txtBuscarCliente
-            // 
-            this.txtBuscarCliente.Location = new System.Drawing.Point(107, 15);
-            this.txtBuscarCliente.Name = "txtBuscarCliente";
-            this.txtBuscarCliente.Size = new System.Drawing.Size(167, 20);
-            this.txtBuscarCliente.TabIndex = 0;
             // 
             // FrmFacturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(728, 626);
+            this.ClientSize = new System.Drawing.Size(754, 630);
             this.Controls.Add(this.panel1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmFacturacion";
             this.Text = " ";
-            this.Load += new System.EventHandler(this.FrmFacturacion_Load);
             this.panel1.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel3.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -490,7 +556,7 @@ namespace _14mayproyecrep
         private System.Windows.Forms.TextBox txtbxCodigo;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtbxpagot;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -510,7 +576,11 @@ namespace _14mayproyecrep
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox txtbxDesc;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox txtid;
         private System.Windows.Forms.Button btnBuscarCodigo;
+        private System.Windows.Forms.Button Sumartotal;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Button masCiente;
+        private System.Windows.Forms.Panel panel8;
     }
 }

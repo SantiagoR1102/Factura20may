@@ -163,6 +163,26 @@ namespace _14mayproyecrep.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap mas16 {
+            get {
+                object obj = ResourceManager.GetObject("mas16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mas216 {
+            get {
+                object obj = ResourceManager.GetObject("mas216", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap menu {
             get {
                 object obj = ResourceManager.GetObject("menu", resourceCulture);
@@ -216,6 +236,16 @@ namespace _14mayproyecrep.Properties {
         internal static System.Drawing.Bitmap subcat_64 {
             get {
                 object obj = ResourceManager.GetObject("subcat-64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap total634 {
+            get {
+                object obj = ResourceManager.GetObject("total634", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -27,7 +27,7 @@ namespace _14mayproyecrep
 
 
         //Buscar Cedula de la persona 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click_1(object sender, EventArgs e)
         {
             string cedula = txtBuscarCliente.Text.Trim();
 
@@ -54,9 +54,7 @@ namespace _14mayproyecrep
             {
                 MessageBox.Show("Error al buscar el nombre del cliente: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-
+        } 
 
 
 
@@ -110,17 +108,18 @@ namespace _14mayproyecrep
         {
             List<objDetalleFactura> listafaca = Facturacion.Listardetalelfac();
             listafac.Items.Clear();
+            
+                foreach (var detalle in listafaca)
+                {
+                    ListViewItem item = new ListViewItem(detalle.CodPro.ToString());
+                    item.SubItems.Add(detalle.Nombre);
+                    item.SubItems.Add(detalle.Cantidad.ToString());
+                    item.SubItems.Add(detalle.Precio.ToString());
+                    item.SubItems.Add(detalle.Total.ToString());
+                    listafac.Items.Add(item);
 
-            foreach (var detalle in listafaca)
-            {
-                ListViewItem item = new ListViewItem(detalle.CodPro.ToString());
-                item.SubItems.Add(detalle.Nombre);
-                item.SubItems.Add(detalle.Cantidad.ToString());
-                item.SubItems.Add(detalle.Precio.ToString());
-                item.SubItems.Add(detalle.Total.ToString());
-                listafac.Items.Add(item);
-
-            }
+                }
+            
         }
 
 
@@ -135,43 +134,11 @@ namespace _14mayproyecrep
 
             try
             {
-                //int id = string.IsNullOrEmpty(txtid.Text) ? 0 : Convert.ToInt32(txtid.Text);
-                //int CodigoPro = string.IsNullOrEmpty(txtbxCodigo.Text) ? 0 : Convert.ToInt32(txtbxCodigo.Text);
-                //int Cantidad = string.IsNullOrEmpty(txtBxCantidad.Text) ? 0 : Convert.ToInt32(txtBxCantidad.Text);
-                //int Precio = string.IsNullOrEmpty(txtBxprecio.Text) ? 0 : Convert.ToInt32(txtBxprecio.Text);
 
-                //int Total = Cantidad * Precio;
 
-                //if (string.IsNullOrWhiteSpace(txtbxCodigo.Text))
-                //{
-                //    MessageBox.Show("El campo Código no puede estar vacío");
-                //    return;
-                //}
-
-                //if (string.IsNullOrWhiteSpace(txtBxCantidad.Text))
-                //{
-                //    MessageBox.Show("El campo Cantidad no puede estar vacío");
-                //    return;
-                //}
-
-                //bool rs = Facturacion.Guardar(id, CodigoPro, txtbxDesc.Text, Cantidad, Precio, Total);
-
-                //if (rs)
-                //{
-                //    MessageBox.Show("Datos guardados con éxito", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //}
-
-                //// Clear the fields after saving
-                //txtbxCodigo.Text = "";
-                //txtBuscarCliente.Text = "";
-                //txtNombreCliente.Text = "";
-                //txtBxCantidad.Text = "";
-                //txtBxprecio.Text = "";
-                //txtbxDesc.Text = "";
-
-                if(ListaProductos.Count > 0)
+                if (ListaProductos.Count > 0)
                 {
-                   bool r = ListaProductos.Where(x => x.CodPro == Convert.ToInt32(txtbxCodigo.Text)).Any();
+                    bool r = ListaProductos.Where(x => x.CodPro == Convert.ToInt32(txtbxCodigo.Text)).Any();
                     if (r)
                     {
                         MessageBox.Show("Producto ya existe", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -179,9 +146,10 @@ namespace _14mayproyecrep
                     }
                 }
 
-                ListaProductos.Add(new objProductos() { 
+                ListaProductos.Add(new objProductos()
+                {
                     CodPro = Convert.ToInt32(txtbxCodigo.Text),
-                    Nombre =  txtbxDesc.Text,
+                    Nombre = txtbxDesc.Text,
                     Precio = Convert.ToInt32(txtBxprecio.Text),
                     Total = Convert.ToInt32(txtBxprecio.Text) * Convert.ToInt32(txtBxCantidad.Text)
                 });
@@ -189,7 +157,7 @@ namespace _14mayproyecrep
 
                 listafac.Items.Clear();
 
-                
+
                 foreach (var pedidos in ListaProductos)
                 {
                     ListViewItem item = new ListViewItem(pedidos.CodPro.ToString());
@@ -211,11 +179,7 @@ namespace _14mayproyecrep
 
         }
 
-        private void FrmFacturacion_Load(object sender, EventArgs e)
-        {
-
-        }
-
+       
         private void listafac_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             try
@@ -228,7 +192,7 @@ namespace _14mayproyecrep
 
                     objDetalleFactura modelo = new objDetalleFactura()
                     {
-                        
+
                         Id = id,
                         CodPro = Convert.ToInt32(selectedItem.SubItems[1].Text),
                         Nombre = selectedItem.SubItems[2].Text,
@@ -247,8 +211,37 @@ namespace _14mayproyecrep
             {
                 MessageBox.Show("Error al seleccionar el producto: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+           
+
+        }
+      
+
+        private void CalcularTotal()
+        {
+            decimal totalFinal = 0;
+            foreach (ListViewItem item in listafac.Items)
+            {
+                if (decimal.TryParse(item.SubItems[4].Text, out decimal total))
+                {
+                    totalFinal += total;
+                }
+            }
+
+            txtbxpagot.Text = totalFinal.ToString("c");
+        }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            CalcularTotal();
+
         }
 
+        private void masCiente_Click(object sender, EventArgs e)
+        {
+            Form formulario = new FrmCliNew(null);
+            formulario.ShowDialog();
+        }
+
+        
     }
 }
 
