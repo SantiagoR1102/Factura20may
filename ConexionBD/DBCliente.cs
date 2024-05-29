@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modelos;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -45,8 +46,6 @@ namespace ConexionBD
         }
 
 
-
-
         /*LISTAR-----------------------------------------------------*/
         public List<Modelos.objCliente> ListarCli()
         {
@@ -82,7 +81,38 @@ namespace ConexionBD
             return r;
         }
 
+        public objCliente Buscar(string codigo)
+        {
+            objCliente rs = null;
 
-        
+            try
+            {
+                string query = "SELECT [id] ,[Nombre] ,[Apellido] ,[Correo] ,[Telefono] ,[Direccion] ,[Cedula] FROM [Facturas14mayo].[dbo].[Cliente] WHERE Cedula = "+ codigo;
+                sqlCommand = COMANDO(query, null);
+                dataTable = DATATABLE(sqlCommand);
+                if (dataTable != null || dataTable.Rows.Count > 0)
+                {
+
+                    rs = new objCliente()
+                    {
+                        Cedula = dataTable.Rows[0].Field<int>("Cedula"),
+                        Nombre = dataTable.Rows[0].Field<string>("Nombre") + " " + dataTable.Rows[0].Field<string>("Apellido"),
+                        Telefono = dataTable.Rows[0].Field<int>("Telefono"),
+                        Direccion = dataTable.Rows[0].Field<string>("Direccion")
+                    };
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                CerrarConexion();
+            }
+            return rs;
+        }
+
+
     }
 }

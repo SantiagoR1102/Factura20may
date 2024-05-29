@@ -13,7 +13,7 @@ namespace Modelos
         public int Precio { get; set; }
         public int Total { get; set; }
         //public int SubTotal { get; set; }
-        //public int idFactura { get; set; }
+        public int idFactura { get; set; }
 
     }
 }

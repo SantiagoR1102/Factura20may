@@ -123,6 +123,16 @@ namespace _14mayproyecrep.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap eliminar16 {
+            get {
+                object obj = ResourceManager.GetObject("eliminar16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Factura64 {
             get {
                 object obj = ResourceManager.GetObject("Factura64", resourceCulture);
@@ -236,6 +246,16 @@ namespace _14mayproyecrep.Properties {
         internal static System.Drawing.Bitmap subcat_64 {
             get {
                 object obj = ResourceManager.GetObject("subcat-64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap total16 {
+            get {
+                object obj = ResourceManager.GetObject("total16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

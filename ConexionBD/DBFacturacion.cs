@@ -1,124 +1,35 @@
-﻿using System;
+﻿using Modelos;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace ConexionBD
 {
     public class DBFacturacion : ConexBD
     {
-        //Guardar Datos de la list
 
-
-        public bool Guardar(int id, int CodigoPro, string Nombre, int Cantidad, int Precio, int Total)
+        /*Guardar*/
+        public bool Guardar(objFacturacion modelo)
         {
-            string query = id > 0 ?
-                "UPDATE Factura SET CodigoPro=@CodigoPro, Nombre=@Nombre, Cantidad=@Cantidad, Precio=@Precio, Total=@Total WHERE Id=@Id" :
-                "INSERT INTO Factura (CodigoPro, Nombre, Cantidad, Precio, Total) VALUES (@CodigoPro, @Nombre, @Cantidad, @Precio, @Total)";
-
             bool rs = false;
-
             try
             {
-                List<SqlParameter> parameters = new List<SqlParameter>
-        {
-                 new SqlParameter("@CodigoPro", CodigoPro),
-                 new SqlParameter("@Nombre", Nombre),
-                 new SqlParameter("@Cantidad", Cantidad),
-                 new SqlParameter("@Precio", Precio),
-                 new SqlParameter("@Total", Total)
-        };
-
-                if (id > 0)
+                string query = "INSERT INTO Factura_Encabezado (Cedula, Total) VALUES ('"+modelo.Cedula+"', '"+modelo.TotalFinal+"') ";
+                sqlCommand = COMANDO(query, null);
+                bool i = EJECUTAR_COMANDO(sqlCommand);
+                if (i)
                 {
-                    new SqlParameter("@Id", Total);
-
-                    //parameters.Add(new SqlParameter("@Id", id));
-                }
-
-                sqlCommand = COMANDO(query, parameters);
-                rs = Convert.ToBoolean(EJECUTAR_COMANDO(sqlCommand));
-
-            }
-            catch (Exception e)
-            {
-                throw new Exception("Error al guardar la factura: " + e.Message);
-            }
-            finally
-            {
-                CerrarConexion();
-            }
-
-            return rs;
-        }
-
-
-
-        // Busca el nombre al poner la cedula 
-
-        public string BuscarNombrePorCedula(string cedula)
-        {
-            string nombre = null;
-            string query = "SELECT Nombre FROM Cliente WHERE Cedula = @Cedula";
-
-            try
-            {
-                List<SqlParameter> parameters = new List<SqlParameter>
-                {
-                    new SqlParameter("@Cedula", cedula)
-                };
-
-                SqlDataReader reader = DATAREADER(query, parameters);
-
-                if (reader.Read())
-                {
-                    nombre = reader.GetString(0);
-                }
-
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error al buscar el nombre del cliente: " + ex.Message);
-            }
-            finally
-            {
-                CerrarConexion();
-            }
-
-            return nombre;
-        }
-
-        //Busca el codigo del producto y trae el precio
-
-
-
-
-        //listar----------------------------------------------------------------------------------------------------------
-
-        public List<Modelos.objDetalleFactura> Listardetalelfac()
-        {
-            List<Modelos.objDetalleFactura> r = new List<Modelos.objDetalleFactura>();
-
-            try
-            {
-
-                string query = @"SELECT f.id, f.CodigoPro, f.Nombre AS Producto, f.Cantidad, f.Precio, f.Total 
-                                    FROM Factura f INNER JOIN Productos p ON f.CodigoPro = p.CodigoPro;";
-
-                SqlDataReader dataReader = DATAREADER(query, null);
-                while (dataReader.Read())
-
-                {
-                    r.Add(new Modelos.objDetalleFactura()
+                    rs = true;
+                    int idFactura = IdFactura();
+                    if(idFactura > 0)
                     {
-                        Id = dataReader.GetInt32(0),
-                        CodPro = dataReader.GetInt32(1),
-                        Nombre = dataReader.GetString(2),
-                        Cantidad = dataReader.GetInt32(3),
-                        Precio = dataReader.GetInt32(4),
-                        Total = dataReader.GetInt32(5)
+                        if(modelo.Detalle.Count > 0)
+                        {
 
-                    });
+                            GuardarDetalle(modelo.Detalle, idFactura);
+                        }
+                    }
                 }
             }
             catch (Exception e)
@@ -129,9 +40,67 @@ namespace ConexionBD
             {
                 CerrarConexion();
             }
-            return r;
+            return rs;
         }
+
+        public int IdFactura()
+        {
+            int rs = 0;
+            try
+            {
+                string query = "SELECT TOP 1 Id FROM Factura_Encabezado ORDER BY Id DESC";
+                sqlCommand = COMANDO(query, null);
+                dataTable= DATATABLE(sqlCommand);
+                if(dataTable != null || dataTable.Rows.Count > 0)
+                {
+                    rs = dataTable.Rows[0].Field<int>("Id");
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                CerrarConexion();
+            }
+            return rs;
+
+        }
+
+        public bool GuardarDetalle(List<objDetalleFactura> modelo, int id)
+        {
+            bool rs = false;
+            try
+            {
+              
+
+                for (int x = 0; x < modelo.Count; x++)
+                {
+                    string detalles = "INSERT INTO Factura_Detalle (CodigoProducto, Precio, Total, Cantidad, IdFactura ) VALUES ('" + modelo[x].CodPro + "', '" + modelo[x].Precio + "', '" + modelo[x].Total + "', '" + modelo[x].Cantidad + "', '" + id + "') ";
+                    sqlCommand = COMANDO(detalles, null);
+                    bool i = EJECUTAR_COMANDO(sqlCommand);
+                    if (i)
+                    {
+                        rs = true;
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                CerrarConexion();
+            }
+            return rs;
+        }
+
     }
+    
+
 
 }
 
